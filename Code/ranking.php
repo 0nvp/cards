@@ -26,26 +26,9 @@ require_once("includes/plugins/cookie.plugins.php");
         <div class="main">
             <h1>Card game by Asdeki team</h1>
             <hr>
-            <table>
-                <thead>
-                    <tr>
-                        <td>====>> Username <<====</td>
-                        <td>===>> Deck1 <<===</td>
-                        <td>===>> Deck2 <<===</td>
-                        <td>===>> Time <<===</td>
-                        <td>===>> Win <<==</td>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                foreach($_SESSION['player']['array'] as $user){$test.="<div class=\"card\"><img src=\"images/cards/default/{$user}.png\" 
-                alt=\"{$user}\" width=\"20px\" height=\"32px\"></div>";} 
-                foreach($_SESSION['ranking']['array'] as $ranking){
-                    print "<tr><td>{$ranking['username']}</td><td><span style=\"display:flex;position:relative;\">{$test}</span></td><td><span style=\"display:flex;position:relative;\">{$test}</span></td><td>{$ranking['time']}</td><td>{$ranking['win']}</td></tr>";
-                }
-                ?>
-                </tbody>
-            </table>
+            <div class="ranking">
+                <?php require_once("includes/plugins/ranking.plugins.php");?>
+            </div>
         </div>
     </body>
 </html>
