@@ -3,15 +3,22 @@
     color: white;
     font-family: Arial;
 }
+.alert{
+    z-index: 1;
+    position: fixed;
+    margin: 32% 55%;
+    font-size: 30px;
+    font-weight: bold;
+}
 .signup{
-    padding: 10% 0%;
+    padding: 10vw 2vw;
     width: 30%;
     font-size: 30px;
     text-align: center;
     float: left;
 }
 .login{
-    padding: 8% 10%;
+    padding: 7vw 10vw;
     text-align: center;
     float: right;
 }

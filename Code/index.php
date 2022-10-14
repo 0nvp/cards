@@ -16,7 +16,7 @@ if(isset($_COOKIE['LOGIN'])){
     </head>
     <body>
         <!--ALERT-->
-        <div class="alert" style="z-index:1;position:fixed;margin:32% 10%;font-size:30px;font-weight:bold;">
+        <div class="alert">
             <?php if(isset($_COOKIE['alert'])){print $_COOKIE['alert'];setcookie("alert", "", time() - 10, "/");}?>
         </div>
         <!--SIGN UP-->
