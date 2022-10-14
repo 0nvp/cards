@@ -24,12 +24,26 @@ class AjaxService{
     }
 
     protected function _checkCredentials(){
-        if($this->_str1[2]>$this->_str2[2]){
-            array_push($this->_deck1, $this->_card2);
+        if($this->_str1[2]==$this->_str2[2]){
+            if($this->_deck1[1]>$this->_deck2[1]){
+                array_push($this->_deck1, $this->_card1, $this->_card2);
+                unset($this->_deck1[0], $this->_deck2[0]);
+            }
+            elseif($this->_deck2[1]>$this->_deck1[1]){
+                array_push($this->_deck1, $this->_card1, $this->_card2);
+                unset($this->_deck1[0], $this->_deck2[0]);
+            }
+        }
+        elseif($this->_str1[2]>$this->_str2[2]){
+            array_push($this->_deck1, $this->_card1, $this->_card2);
+            unset($this->_deck1[0], $this->_deck2[0]);
         }
         elseif($this->_str2[2]>$this->_str1[2]){
-            array_push($this->_deck2, $this->_card1);
+            array_push($this->_deck2, $this->_card2, $this->_card1);
+            unset($this->_deck1[0], $this->_deck2[0]);
         }
+        $this->_deck1=array_values($this->_deck1);
+        $this->_deck2=array_values($this->_deck2);
     }
 }
 ?>
