@@ -9,6 +9,11 @@ function reEmail(){
 function rePassword(){
     document.getElementById("password").innerHTML="<form action=\"includes/inc/password.inc.php\" method=\"POST\"><input type=\"password\" name=\"password-password1\" placeholder=\"old password\" required=\"\"> <input type=\"password\" name=\"password-password2\" placeholder=\"new password\" required=\"\"> <input type=\"submit\" name=\"password-submit\" value=\"change password\"></form>";
 }
+function confirmDelAcc(){
+    if(confirm("Are you sure?")){
+        delAcc();
+    }
+}
 function delAcc(){
     document.getElementById("drop").innerHTML="<form action=\"includes/inc/drop.inc.php\" method=\"POST\"><input type=\"password\" name=\"drop-password\" placeholder=\"password\" required=\"\"> <input type=\"submit\" name=\"drop-submit\" value=\"remove account\"></form>";
 }

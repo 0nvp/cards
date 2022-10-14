@@ -2,6 +2,11 @@
 session_start();
 // UID SESSION
 require_once("includes/plugins/cookie.plugins.php");
+// AJAX REQUEST
+require_once("includes/inc/ajax.inc.php");
+var_dump($_SESSION['player']['array']);
+echo "<br>";
+var_dump($_SESSION['computer']['array']);
 ?>
 
 <!DOCTYPE HTML>
@@ -17,5 +22,7 @@ require_once("includes/plugins/cookie.plugins.php");
         </div>
         <div class="menu">
         </div>
+        <!--JAVA SCRIPT-->
+        <script src="js/ajax.js"></script>
     </body>
 </html>

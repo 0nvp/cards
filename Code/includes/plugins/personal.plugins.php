@@ -8,6 +8,6 @@ print "<!--USERNAME--><div id=\"username\">Username: {$_SESSION['player']['usern
 <div id=\"password\">Password: ******** <span id=\"passwordSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"rePassword()\">edit</span>
 </div>
 <!--REMOVE ACCOUNT-->
-<div id=\"drop\"><span id=\"delAcc\" style=\"color:blue;cursor:pointer;\" onclick=\"delAcc()\">Delete account</span>
+<div id=\"drop\"><span id=\"delAcc\" style=\"color:blue;cursor:pointer;\" onclick=\"confirmDelAcc()\">Delete account</span>
 </div>";
 ?>
