@@ -28,11 +28,8 @@ if(isset($_COOKIE['LOGIN'])){
                 <label for="login-password"><img src="images/icons/password.png" width="30px" height="24px" alt="icon"></label>
                 <input id="password" type="password" name="login-password" placeholder="password" required=""><br>
                 <input type="submit" name="login-submit" value="Login">
-                <input type="button" value="Recovery password" onclick="passwd_recovery()">
+                <input type="button" value="Recovery password" onclick="recoveryPassword()">
             </form>
-        </div>
-        <div id="recovery" class="recovery">
-            <?php require_once("includes/plugins/recovery.plugins.php");?>
         </div>
         <div class="signup">
             <img src="images/icons/login.png">

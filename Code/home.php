@@ -30,7 +30,7 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['player'])){
         </div>
         <!--BODY-->
         <div class="main">
-            <h1>Card game by Asdeki team v.0.2.2</h1>
+            <h1>Card game by Asdeki team</h1>
             <hr>
             <?php print "<h3>Welcome, {$_SESSION['player']['username']}!</h3>";?>
             <a href="includes/inc/game.inc.php">game</a>

@@ -28,24 +28,29 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['player'])){
         </div>
         <!--BODY-->
         <div class="main">
-            <h1>Card game by Asdeki team v.0.2.2</h1>
+            <h1>Card game by Asdeki team</h1>
             <hr>
             <!--ALERT-->
             <div class="alert">
                 <?php if(isset($_COOKIE['alert'])){print $_COOKIE['alert'];setcookie("alert", "", time() - 10, "/");}?>
             </div>
             <!--PERSONAL DATA-->
-            <div id="personal" class="personal">
-                <?php require_once("includes/plugins/personal.plugins.php");?>
+            <div id="username" class="personal">
+                <?php print "Username: {$_SESSION['player']['username']} <span id=\"usernameSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"reUsername()\">edit</span>";?>
+            </div>
+            <div id="email" class="personal">
+                <?php print "Email: {$_SESSION['player']['email']} <span id=\"emailSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"reEmail()\">edit</span>";?>
             </div>
             <!--PASSWORD-->
-            <div id="password" class="password">
-                <?php require_once("includes/plugins/password.plugins.php");?>
+            <div id="password" class="personal">
+                <?php print "Password: ******** <span id=\"passwordSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"rePassword()\">edit</span>";?>
             </div>
             <!--REMOVE ACCOUNT-->
-            <div id="drop" class="drop">
-                <?php require_once("includes/plugins/drop.plugins.php");?>
+            <div id="drop" class="personal">
+                <span id="delAcc" style="color:blue;cursor:pointer;" onclick="delAcc()">Delete account</span>
             </div>
         </div>
+        <!--JAVA SCRIPT-->
+        <script src="js/personal.js"></script>
     </body>
 </html>

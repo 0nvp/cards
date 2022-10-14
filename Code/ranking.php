@@ -24,7 +24,7 @@ require_once("includes/plugins/cookie.plugins.php");
         </div>
         <!--BODY-->
         <div class="main">
-            <h1>Card game by Asdeki team v.0.2.2</h1>
+            <h1>Card game by Asdeki team</h1>
             <hr>
             <table>
                 <thead>
