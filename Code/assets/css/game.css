@@ -1,0 +1,36 @@
+#icon-computer{
+    position: fixed;
+    top: 2%;
+    left: 2%;
+}
+#icon-user{
+    position: fixed;
+    top: 66%;
+    left: 2%;
+}
+.deck-computer{
+    display: flex;
+    position: relative;
+    margin: 10px 400px;
+}
+.deck-user{
+    display: flex;
+    position: fixed;
+    margin: 280px 400px;
+}
+.card{
+    padding: 5px;
+}
+#draw{
+    position: fixed;
+    top: 80%;
+    margin: 0px 5%;
+    background-color: green;
+    color: white;
+    text-align:center;
+    font-size:40px;
+}
+#draw:hover{
+    color: greenyellow;
+    cursor: pointer;
+}

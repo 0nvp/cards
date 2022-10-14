@@ -1,0 +1,15 @@
+table{
+    margin: 0px 50px;
+    text-align: center;
+    font-size: 35px;
+    border: 1px solid black;
+    background-color: whitesmoke;
+}
+td{
+    border: 1px solid black;
+}
+.footer{
+    display: flex;
+    position: fixed;
+    top: 93%;
+}

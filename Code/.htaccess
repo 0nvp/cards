@@ -1,0 +1,7 @@
+RewriteEngine On
+# CSS
+RewriteRule ^css/(.*\.css)$ assets/css/$1 [L,NC]
+# JS
+RewriteRule ^js/(.*\.js)$ assets/js/$1 [L,NC]
+# IMAGES
+RewriteRule ^images/(.*\.png)$ assets/images/$1 [L,NC]

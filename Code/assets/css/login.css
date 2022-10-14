@@ -1,0 +1,58 @@
+*{
+    background-color: rgb(9, 17, 29);
+    color: white;
+    font-family: Arial;
+}
+.login{
+    z-index: 1;
+    position: relative;
+    padding: 15% 10%;
+    width: 30%;
+    font-size: 30px;
+    text-align: center;
+    float: right;
+}
+.recovery{
+    display: none;
+    z-index: 1;
+    position: relative;
+    padding: 15% 10%;
+    width: 30%;
+    font-size: 30px;
+    text-align: center;
+    float: right;
+}
+.signup{
+    position: relative;
+    padding: 8% 5%;
+    width: 60%;
+    text-align: center;
+}
+input[type=text], input[type=password]{
+    background-color: rgb(9, 17, 29);
+    padding: 15px;
+    margin: 5px 15px;
+    border: 2px solid white;
+    
+}
+input[type=text]:focus, input[type=password]:focus{
+    background-color: lightgray;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+input[type=submit]{
+    background-color: olivedrab;
+    cursor: pointer;
+    margin: 20px;
+    padding: 20px 65px;
+    font-size: 20px;
+}
+input[type=button]{
+    background-color: seagreen;
+    cursor: pointer;
+    margin: 20px;
+    padding: 20px 10px;
+    font-size: 20px;
+}
