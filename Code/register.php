@@ -19,7 +19,7 @@ if(isset($_COOKIE['LOGIN'])){
         <div class="alert" style="z-index:1;position:fixed;margin:32% 55%;font-size:30px;font-weight:bold;">
             <?php if(isset($_COOKIE['alert'])){print $_COOKIE['alert'];setcookie("alert", "", time() - 10, "/");}?>
         </div>
-        <!--FORM-->
+        <!--SIGN UP-->
         <div class="signup">
             <h1>Sign up</h1>
             <form method="POST" action="includes/inc/register.inc.php">
@@ -33,6 +33,7 @@ if(isset($_COOKIE['LOGIN'])){
             </form>
             <span style="font-size: 15px;">By creating an account you agree to our <a href="#">Terms & Privacy</a></span>
         </div>
+        <!--LOG IN-->
         <div class="login">
             <img src="images/icons/register.png">
             <p>Already have an account? <a href="index.php">Sign in</a></p>

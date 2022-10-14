@@ -19,7 +19,12 @@ if(isset($_COOKIE['LOGIN'])){
         <div class="alert" style="z-index:1;position:fixed;margin:32% 10%;font-size:30px;font-weight:bold;">
             <?php if(isset($_COOKIE['alert'])){print $_COOKIE['alert'];setcookie("alert", "", time() - 10, "/");}?>
         </div>
-        <!--FORM-->
+        <!--SIGN UP-->
+        <div class="signup">
+            <img src="images/icons/login.png" width="" height="" alt="logo">
+            <p><a href="register.php">Don't have an account yet? Sign up here!</a></p>
+        </div>
+        <!--LOG IN-->
         <div id="login" class="login">
             <h1>Log in</h1>
             <form method="POST" action="includes/inc/login.inc.php">
@@ -30,10 +35,6 @@ if(isset($_COOKIE['LOGIN'])){
                 <input type="submit" name="login-submit" value="Login">
                 <input type="button" value="Recovery password" onclick="recoveryPassword()">
             </form>
-        </div>
-        <div class="signup">
-            <img src="images/icons/login.png">
-            <p><a href="register.php">Don't have an account yet? Sign up here!</a></p>
         </div>
         <!--JAVA SCRIPT-->
         <script src="js/recovery.js"></script>

@@ -3,30 +3,17 @@
     color: white;
     font-family: Arial;
 }
-.login{
-    z-index: 1;
-    position: relative;
-    padding: 15% 10%;
-    width: 30%;
-    font-size: 30px;
-    text-align: center;
-    float: right;
-}
-.recovery{
-    display: none;
-    z-index: 1;
-    position: relative;
-    padding: 15% 10%;
-    width: 30%;
-    font-size: 30px;
-    text-align: center;
-    float: right;
-}
 .signup{
-    position: relative;
-    padding: 8% 5%;
-    width: 60%;
+    padding: 8% 0%;
+    width: 50%;
     text-align: center;
+    float: left;
+}
+.login{
+    padding: 15% 10%;
+    font-size: 30px;
+    text-align: center;
+    float: right;
 }
 input[type=text], input[type=password]{
     background-color: rgb(9, 17, 29);
