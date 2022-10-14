@@ -1,9 +1,9 @@
 function reUsername(){
-    let value="username";
+    let value=document.getElementById("usernameValue").value;
     document.getElementById("username").innerHTML="<form action=\"includes/inc/personal.inc.php\" method=\"POST\"><input type=\"text\" name=\"username-username\" value=\""+value+"\"required=\"\"> <input type=\"submit\" name=\"username-submit\" value=\"save\"></form>";
 }
 function reEmail(){
-    let value="email";
+    let value=document.getElementById("emailValue").value;
     document.getElementById("email").innerHTML="<form action=\"includes/inc/personal.inc.php\" method=\"POST\"><input type=\"text\" name=\"email-email\" value=\""+value+"\"required=\"\"> <input type=\"submit\" name=\"email-submit\" value=\"save\"></form>";
 }
 function rePassword(){

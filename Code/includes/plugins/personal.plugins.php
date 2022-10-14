@@ -1,8 +1,8 @@
 <?php
-print "<!--USERNAME--><div id=\"username\">Username: {$_SESSION['player']['username']} <span id=\"usernameSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"reUsername()\">edit</span>
+print "<!--USERNAME--><div id=\"username\">Username: <span id=\"usernameValue\">{$_SESSION['player']['username']}</span> <span id=\"usernameSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"reUsername()\">edit</span>
 </div>
 <!--EMAIL-->
-<div id=\"email\">Email: {$_SESSION['player']['email']} <span id=\"emailSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"reEmail()\">edit</span>
+<div id=\"email\">Email: <span id=\"emailValue\">{$_SESSION['player']['email']}</span> <span id=\"emailSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"reEmail()\">edit</span>
 </div>
 <!--PASSWORD-->
 <div id=\"password\">Password: ******** <span id=\"passwordSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"rePassword()\">edit</span>
