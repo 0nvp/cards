@@ -13,3 +13,6 @@ img:hover{
     width: auto;
     height: auto;
 }
+.card{
+    padding: 2px;
+}

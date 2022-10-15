@@ -10,7 +10,10 @@ foreach($_SESSION['ranking']['array'] as $ranking){
         $i++;
         print "<div class=\"card\"><img src=\"images/cards/default/{$deck}.png\" 
         alt=\"{$deck}\" width=\"50px\" height=\"78px\"></div>";
-        if($i==26){
+        if($i==24){
+            print "</span><span style=\"display:flex;\">";
+        }
+        if($i==50){
             print "</span><span style=\"display:flex;\">";
         }
     }
