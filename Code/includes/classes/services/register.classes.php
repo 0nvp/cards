@@ -16,21 +16,21 @@ class RegisterService extends db{
     public function register(){
         $this->_checkCredentials();
         setcookie("alert", "<span style=\"color:lawngreen;\">account has been successfully created</span>", time() + 5, "/");
-        header("location: ../../index.php");
+        header("location: ../../../index.php");
         exit();
     }
 
     protected function _checkCredentials(){
         if(empty($this->_email) || empty($this->_username) || empty($this->_password)){
             setcookie("alert", "<span style=\"color:red;\">register error</span>", time() + 5, "/");
-            header("location: ../../register.php");
+            header("location: ../../../register.php");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT `email` FROM `users` WHERE `email`=?;");
         $stmt->execute(array($this->_email));
         if($stmt->rowCount()>0){
             setcookie("alert", "<span style=\"color:red;\">register error</span>", time() + 5, "/");
-            header("location: ../../register.php");
+            header("location: ../../../register.php");
             exit();
         }
         $stmt=$this->connect()->prepare("INSERT INTO `users` (`id-cookie`, `username`, `email`, `password`) VALUES (?, ?, ?, ?);");

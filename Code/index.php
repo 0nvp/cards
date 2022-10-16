@@ -27,7 +27,7 @@ if(isset($_COOKIE['LOGIN'])){
         <!--LOG IN-->
         <div id="login" class="login">
             <h1>Log in</h1>
-            <form method="POST" action="includes/inc/login.inc.php">
+            <form method="POST" action="includes/inc/services/login.inc.php">
                 <label for="login-email"><img src="images/icons/email.png" width="30px" height="24px" alt="icon"></label>
                 <input type="text" name="login-email" placeholder="email" required=""><br>
                 <label for="login-password"><img src="images/icons/password.png" width="30px" height="24px" alt="icon"></label>

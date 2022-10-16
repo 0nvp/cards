@@ -25,7 +25,7 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['player'])){
             <hr>
             <a href="ranking.php">Ranking</a><br>
             <hr>
-            <a href="includes/inc/logout.inc.php">Logout</a><br>
+            <a href="includes/inc/services/logout.inc.php">Logout</a><br>
             <hr>
         </div>
         <!--BODY-->

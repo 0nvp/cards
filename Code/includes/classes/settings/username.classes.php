@@ -14,19 +14,19 @@ class UsernameService extends db{
     public function username(){
         $this->_checkCredentials();
         $_SESSION['player']['username']=$this->_username2;
-        header("location: ../../profile.php");
+        header("location: ../../../profile.php");
         exit();
     }
 
     protected function _checkCredentials(){
         if(empty($this->_id) || empty($this->_username2)){
             setcookie("alert", "<span style=\"color:red;\">update personal data error</span>", time() + 5, "/");
-            header("location: ../../profile.php");
+            header("location: ../../../profile.php");
             exit();
         }
         if($this->_username2==$this->_username1){
             setcookie("alert", "<span style=\"color:red;\">update personal data error</span>", time() + 5, "/");
-            header("location: ../../profile.php");
+            header("location: ../../../profile.php");
             exit();
         }
         $stmt=$this->connect()->prepare("UPDATE `users` SET `username`=? WHERE `id-user`=?;");

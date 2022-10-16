@@ -12,14 +12,14 @@ class RecoveryService extends db{
     public function recovery(){
         $this->_checkCredentials();
         setcookie("alert", "<span style=\"color:black;\">reset.php?id-recovery={$this->_recovery}</span>", time() + 5, "/");
-        header("location: ../../config/email.php");
+        header("location: ../../../config/email.php");
         exit();
     }
 
     protected function _checkCredentials(){
         if(empty($this->_email)){
             setcookie("alert", "<span style=\"color:red;\">user not found</span>", time() + 5, "/");
-            header("location: ../../index.php");
+            header("location: ../../../index.php");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT recovery.`id-user` FROM `recovery` INNER JOIN `status` ON recovery.`id-user`=status.`id-user` 
@@ -27,7 +27,7 @@ class RecoveryService extends db{
         $stmt->execute(array($this->_email));
         if($stmt->rowCount()==0){
             setcookie("alert", "<span style=\"color:red;\">user not found</span>", time() + 5, "/");
-            header("location: ../../index.php");
+            header("location: ../../../index.php");
             exit();
         }
         $stmt=$this->connect()->prepare("UPDATE `recovery` SET `id-recovery`=? WHERE `id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?);");

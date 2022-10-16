@@ -22,7 +22,7 @@ if(empty($_GET['id-recovery'])){
         <!--RESET PASSWORD-->
         <div class="login">
             <h1>New password</h1>
-            <form method="POST" action="includes/inc/recovery.inc.php?<?php print "id-recovery={$_GET['id-recovery']}";?>">
+            <form method="POST" action="includes/inc/services/recovery.inc.php?<?php print "id-recovery={$_GET['id-recovery']}";?>">
             <label for="reset-password"><img src="images/icons/password.png" width="30px" height="24px" alt="icon"></label>
                 <input id="password" type="password" name="reset-password" placeholder="password" required=""><br>
                 <input type="submit" name="reset-submit" value="Reset password">

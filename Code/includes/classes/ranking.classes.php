@@ -5,7 +5,7 @@ class RankingService extends db{
     public function ranking(){
         $ranking=$this->_checkCredentials();
         $_SESSION['ranking']['array']=$ranking;
-        header("location: ../../home.php");
+        header("location: ../../../home.php");
         exit();
     }
 

@@ -22,7 +22,7 @@ if(isset($_COOKIE['LOGIN'])){
         <!--SIGN UP-->
         <div class="signup">
             <h1>Sign up</h1>
-            <form method="POST" action="includes/inc/register.inc.php">
+            <form method="POST" action="includes/inc/services/register.inc.php">
                 <label for="register-username"><img src="images/icons/username.png" width="30px" height="24px" alt="icon"></label>
                 <input type="text" name="register-username" placeholder="username*" required=""><br>
                 <label for="register-email"><img src="images/icons/email.png" width="30px" height="24px" alt="icon"></label>
