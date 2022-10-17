@@ -4,7 +4,7 @@ session_start();
 require_once("includes/plugins/cookie.plugins.php");
 // COOKIE SESSION
 if(isset($_COOKIE['LOGIN']) && empty($_SESSION['player'])){
-    header("location: includes/inc/cookie.inc.php");
+    header("location: includes/inc/services/cookie.inc.php");
     exit();
 }
 ?>

@@ -21,16 +21,10 @@
     left: 40vw;
 }
 .deck-computer{
-    float: left;
-    margin: 5vw -30vw;
+    display: flex;
 }
 .deck-user{
-    float: left;
-    margin: 20vw -30vw;
-}
-.deck{
-    position: fixed;
-    left: 90%;
+    display: flex;
 }
 .card{
     padding: 5px;
