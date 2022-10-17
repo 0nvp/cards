@@ -34,7 +34,7 @@ require_once("includes/inc/ajax.inc.php");
             alt=\"back_of_card\" width=\"197px\" height=\"311px\" onclick=\"ajaxCard('nextRound')\">";
             }
             else{
-            print "<img style=\"cursor:pointer;\" src=\"images/cards/default/back_of_card.png\" 
+            print "<img style=\"cursor:pointer;\" src=\"images/icons/password.png\" 
             alt=\"back_of_card\" width=\"197px\" height=\"311px\" onclick=\"ajaxCard('test')\">";
             }
             ?>
