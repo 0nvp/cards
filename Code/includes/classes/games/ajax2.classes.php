@@ -11,18 +11,18 @@ class AjaxService2{
     public function __construct(){
         $this->_deck1=$_SESSION['player']['array'];
         $this->_deck2=$_SESSION['computer']['array'];
-        $this->_status=$_SESSION['test'];
-        $this->_i=$_SESSION['test2'];
+        $this->_status=$_SESSION['game']['status'];
+        $this->_i=$_SESSION['game']['i'];
     }
 
     public function test(){
         $this->_checkCredentials();
         if($this->_status==true){
-            $_SESSION['test']=$this->_status;
-            $_SESSION['test2']=$this->_i;
+            $_SESSION['game']['status']=$this->_status;
+            $_SESSION['game']['i']=$this->_i;
         }
         elseif($this->_status==false){
-            unset($_SESSION['test'], $_SESSION['test2']);
+            unset($_SESSION['game']['status'], $_SESSION['game']['i']);
             $_SESSION['player']['array']=$this->_deck1;
             $_SESSION['computer']['array']=$this->_deck2;
         }

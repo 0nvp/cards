@@ -29,7 +29,7 @@ require_once("includes/inc/ajax.inc.php");
             <?php require_once("includes/plugins/deck.plugins.php");?>
         </div>
         <div id="menu" class="menu">
-            <?php if(empty($_SESSION['test'])){
+            <?php if(empty($_SESSION['game']['status'])){
             print "<img style=\"cursor:pointer;\" src=\"images/cards/default/back_of_card.png\" 
             alt=\"back_of_card\" width=\"197px\" height=\"311px\" onclick=\"ajaxCard('nextRound')\">";
             }

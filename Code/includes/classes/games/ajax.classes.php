@@ -16,8 +16,8 @@ class AjaxService{
     public function nextRound(){
         $this->_checkCredentials();
         if($this->_status==true){
-            $_SESSION['test']=$this->_status;
-            $_SESSION['test2']=$this->_i;
+            $_SESSION['game']['status']=$this->_status;
+            $_SESSION['game']['i']=$this->_i;
         }
         elseif($this->_status==false){
             $_SESSION['player']['array']=$this->_deck1;
