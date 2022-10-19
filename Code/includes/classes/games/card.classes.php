@@ -12,6 +12,7 @@ class CardService{
     }
 
     public function newDeck(){
+        $_SESSION['game']['i']=0;
         $_SESSION['computer']['array']=[];
         $_SESSION['player']['array']=[];
         for($i=1;$i<=26;$i++){
