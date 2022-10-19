@@ -3,6 +3,7 @@
 class LoginService extends db{
     protected $_email;
     protected $_password;
+    protected $_result;
 
     public function __construct(){
         $this->_email=strtolower($_POST['login-email']);
@@ -10,15 +11,15 @@ class LoginService extends db{
     }
 
     public function login(){
-        $result=$this->_checkCredentials();
         session_start();
-        setcookie("LOGIN", $result['id-cookie'], time() + 3600, "/");
-        $_SESSION['player']=array("id"=>$result['id-user'],"email"=>$result['email'],"username"=>$result['username']);
+        $this->_checkCredentials();
+        setcookie("LOGIN", $this->_result['id-cookie'], time() + 3600, "/");
+        $_SESSION['player']=array("id"=>$result['id-user'],"email"=>$this->_result['email'],"username"=>$this->_result['username']);
     }
 
     protected function _checkCredentials(){
         if(empty($this->_email) || empty($this->_password)){
-            setcookie("alert", "<span style=\"color:red;\">user not found</span>", time() + 5, "/");
+            $_SESSION['login']['empty']=true;
             header("location: ../../../index.php");
             exit();
         }
@@ -27,13 +28,13 @@ class LoginService extends db{
         WHERE `email`=? AND `password`=? AND status.`status`=\"active\";");
         $stmt->execute(array($this->_email, hash("sha3-512", $this->_password)));
         if($stmt->rowCount()==0){
-            setcookie("alert", "<span style=\"color:red;\">user not found</span>", time() + 5, "/");
+            $_SESSION['login']['stmt']=true;
             header("location: ../../../index.php");
             exit();
         }
-        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+        $this->_result=$stmt->fetch(PDO::FETCH_ASSOC);
         $stmt=null;
-        return $result;
+        return $this->_result;
     }
 }
 ?>

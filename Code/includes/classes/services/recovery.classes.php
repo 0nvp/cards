@@ -10,6 +10,7 @@ class RecoveryService extends db{
     }
 
     public function recovery(){
+        session_start();
         $this->_checkCredentials();
         setcookie("alert", "<span style=\"color:black;\">reset.php?id-recovery={$this->_recovery}</span>", time() + 5, "/");
         header("location: ../../../config/email.php");
@@ -18,7 +19,7 @@ class RecoveryService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_email)){
-            setcookie("alert", "<span style=\"color:red;\">user not found</span>", time() + 5, "/");
+            $_SESSION['login']['stmt']=true;
             header("location: ../../../index.php");
             exit();
         }
@@ -26,7 +27,7 @@ class RecoveryService extends db{
         WHERE recovery.`id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?) AND `status`=\"active\";");
         $stmt->execute(array($this->_email));
         if($stmt->rowCount()==0){
-            setcookie("alert", "<span style=\"color:red;\">user not found</span>", time() + 5, "/");
+            $_SESSION['login']['stmt']=true;
             header("location: ../../../index.php");
             exit();
         }

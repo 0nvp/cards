@@ -20,19 +20,19 @@ class EmailService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_id) || empty($this->_email2)){
-            setcookie("alert", "<span style=\"color:red;\">update personal data error</span>", time() + 5, "/");
+            $_SESSION['email']['empty']=true;
             header("location: ../../../profile.php");
             exit();
         }
         if($this->_email2==$this->_email1){
-            setcookie("alert", "<span style=\"color:red;\">update personal data error</span>", time() + 5, "/");
+            $_SESSION['email']['email']=true;
             header("location: ../../../profile.php");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT `email` FROM `users` WHERE `id-user`!=? AND `email`=?;");
         $stmt->execute(array($this->_id, $this->_email2));
         if($stmt->rowCount()>0){
-            setcookie("alert", "<span style=\"color:red;\">update personal data error</span>", time() + 5, "/");
+            $_SESSION['email']['stmt']=true;
             header("location: ../../../profile.php");
             exit();
         }

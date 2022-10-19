@@ -3,13 +3,6 @@
     color: white;
     font-family: Arial;
 }
-.alert{
-    z-index: 1;
-    position: fixed;
-    margin: 32% 55%;
-    font-size: 30px;
-    font-weight: bold;
-}
 .signup{
     padding: 10vw 2vw;
     width: 30%;

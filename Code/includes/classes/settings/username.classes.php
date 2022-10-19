@@ -20,12 +20,12 @@ class UsernameService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_id) || empty($this->_username2)){
-            setcookie("alert", "<span style=\"color:red;\">update personal data error</span>", time() + 5, "/");
+            $_SESSION['username']['empty']=true;
             header("location: ../../../profile.php");
             exit();
         }
         if($this->_username2==$this->_username1){
-            setcookie("alert", "<span style=\"color:red;\">update personal data error</span>", time() + 5, "/");
+            $_SESSION['username']['username']=true;
             header("location: ../../../profile.php");
             exit();
         }

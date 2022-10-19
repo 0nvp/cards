@@ -14,7 +14,6 @@ class RemoveService extends db{
     public function remove(){
         $this->_checkCredentials();
         setcookie("LOGIN", "", time() - 3600, "/");
-        setcookie("alert", "<span style=\"color:lawngreen;\">account has been successfully deleted</span>", time() + 5, "/");
         session_unset();
         session_destroy();
         header("location: ../../../index.php");
@@ -23,14 +22,14 @@ class RemoveService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_id) || empty($this->_password)){
-            setcookie("alert", "<span style=\"color:red;\">remove account error</span>", time() + 5, "/");
+            $_SESSION['drop']['empty']=true;
             header("location: ../../../profile.php");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `password`=? AND `id-user`=?;");
         $stmt->execute(array($this->_password, $this->_id));
         if($stmt->rowCount()==0){
-            setcookie("alert", "<span style=\"color:red;\">remove account error</span>", time() + 5, "/");
+            $_SESSION['drop']['stmt']=true;
             header("location: ../../../profile.php");
             exit();
         }

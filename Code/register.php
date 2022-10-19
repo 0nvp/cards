@@ -15,20 +15,18 @@ if(isset($_COOKIE['LOGIN'])){
         <link rel="stylesheet" type="text/css" href="css/register.css">
     </head>
     <body>
-        <!--ALERT-->
-        <div class="alert">
-            <?php if(isset($_COOKIE['alert'])){print $_COOKIE['alert'];setcookie("alert", "", time() - 10, "/");}?>
-        </div>
         <!--SIGN UP-->
         <div class="signup">
             <h1>Sign up</h1>
             <form method="POST" action="includes/inc/services/register.inc.php">
+                <?php if(isset($_SESSION['register']['empty'])){print "<label style=\"color:red;\" for=\"register-username\">input empty</label><br>";session_destroy();}?>
                 <label for="register-username"><img src="images/icons/username.png" width="30px" height="24px" alt="icon"></label>
                 <input type="text" name="register-username" placeholder="username*" required=""><br>
                 <label for="register-email"><img src="images/icons/email.png" width="30px" height="24px" alt="icon"></label>
                 <input type="text" name="register-email" placeholder="email*" required=""><br>
                 <label for="register-password"><img src="images/icons/password.png" width="30px" height="24px" alt="icon"></label>
                 <input id="password" type="password" name="register-password" placeholder="password*" required=""><br>
+                <?php if(isset($_SESSION['register']['stmt'])){print "<label style=\"color:red;\" for=\"register-submit\">stmt failed</label><br>";session_destroy();}?>
                 <input type="submit" name="register-submit" value="Register">
             </form>
             <span style="font-size: 15px;">By creating an account you agree to our <a href="#">Terms & Privacy</a></span>
