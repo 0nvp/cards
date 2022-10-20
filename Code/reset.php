@@ -19,10 +19,9 @@ if(empty($_GET['id-recovery'])){
         <div class="login">
             <h1>New password</h1>
             <form method="POST" action="includes/inc/services/recovery.inc.php?<?php print "id-recovery={$_GET['id-recovery']}";?>">
-            <?php if(isset($_SESSION['reset']['empty'])){print "<label style=\"color:red;\" for=\"reset-password\">input empty</label><br>";session_destroy();}?>
+            <?php require_once("includes/plugins/alerts/reset.plugins.php");?>
             <label for="reset-password"><img src="images/icons/password.png" width="30px" height="24px" alt="icon"></label>
                 <input id="password" type="password" name="reset-password" placeholder="password" required=""><br>
-                <?php if(isset($_SESSION['reset']['stmt'])){print "<label style=\"color:red;\" for=\"reset-submit\">stmt failed</label><br>";session_destroy();}?>
                 <input type="submit" name="reset-submit" value="Reset password">
             </form>
         </div>

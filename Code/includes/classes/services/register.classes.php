@@ -26,6 +26,16 @@ class RegisterService extends db{
             header("location: ../../../register.php");
             exit();
         }
+        if(!preg_match("/^[a-zA-Z0-9]*$/", $this->_username)){
+            $_SESSION['register']['username']=true;
+            header("location: ../../../register.php");
+            exit();
+        }
+        if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
+            $_SESSION['register']['email']=true;
+            header("location: ../../../register.php");
+            exit();
+        }
         $stmt=$this->connect()->prepare("SELECT `email` FROM `users` WHERE `email`=?;");
         $stmt->execute(array($this->_email));
         if($stmt->rowCount()>0){

@@ -23,6 +23,11 @@ class RecoveryService extends db{
             header("location: ../../../index.php");
             exit();
         }
+        if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
+            $_SESSION['login']['email']=true;
+            header("location: ../../../index.php");
+            exit();
+        }
         $stmt=$this->connect()->prepare("SELECT recovery.`id-user` FROM `recovery` INNER JOIN `status` ON recovery.`id-user`=status.`id-user` 
         WHERE recovery.`id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?) AND `status`=\"active\";");
         $stmt->execute(array($this->_email));

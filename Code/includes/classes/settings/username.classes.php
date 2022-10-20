@@ -24,7 +24,7 @@ class UsernameService extends db{
             header("location: ../../../profile.php");
             exit();
         }
-        if($this->_username2==$this->_username1){
+        if(($this->_username2==$this->_username1) && !preg_match("/^[a-zA-Z0-9]*$/", $this->_username2)){
             $_SESSION['username']['username']=true;
             header("location: ../../../profile.php");
             exit();

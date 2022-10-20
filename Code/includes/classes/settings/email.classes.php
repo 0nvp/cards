@@ -24,7 +24,7 @@ class EmailService extends db{
             header("location: ../../../profile.php");
             exit();
         }
-        if($this->_email2==$this->_email1){
+        if(($this->_email2==$this->_email1) && !filter_var($this->_email2, FILTER_VALIDATE_EMAIL)){
             $_SESSION['email']['email']=true;
             header("location: ../../../profile.php");
             exit();

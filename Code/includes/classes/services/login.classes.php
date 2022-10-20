@@ -23,6 +23,11 @@ class LoginService extends db{
             header("location: ../../../index.php");
             exit();
         }
+        if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
+            $_SESSION['login']['email']=true;
+            header("location: ../../../index.php");
+            exit();
+        }
         $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `username`, `email`, `status`, `date` FROM `users` 
         INNER JOIN `status` ON users.`id-user`=status.`id-user` 
         WHERE `email`=? AND `password`=? AND status.`status`=\"active\";");
