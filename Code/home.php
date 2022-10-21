@@ -1,7 +1,7 @@
 <?php
 session_start();
 // UID SESSION
-require_once("includes/plugins/cookie.plugins.php");
+require_once("includes/plugins/services/cookie.plugins.php");
 // COOKIE SESSION
 if(isset($_COOKIE['LOGIN']) && empty($_SESSION['player'])){
     header("location: includes/inc/services/cookie.inc.php");

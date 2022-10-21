@@ -1,7 +1,7 @@
 <?php
 session_start();
 // UID SESSION
-require_once("includes/plugins/cookie.plugins.php");
+require_once("includes/plugins/services/cookie.plugins.php");
 // AJAX REQUEST
 require_once("includes/inc/ajax.inc.php");
 ?>

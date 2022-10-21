@@ -1,3 +1,3 @@
 function recoveryPassword(){
-    document.getElementById("login").innerHTML="<h1>Reset password</h1><form method=\"POST\" action=\"includes/inc/services/recovery.inc.php\"><label for=\"recovery-email\"><img src=\"images/icons/email.png\" width=\"30px\" height=\"24px\" alt=\"icon\"></label><input type=\"text\" name=\"recovery-email\" placeholder=\"email\" required=\"\"><br><input type=\"submit\" name=\"recovery-submit\" value=\"Reset your password\"></form>";
+    document.getElementById("signin").innerHTML="<h1>Reset password</h1><h4>The Asdeki Team</h4><form method=\"POST\" action=\"includes/inc/services/recovery.inc.php\"><input type=\"text\" name=\"recovery-email\" placeholder=\"Email\" required=\"\" autocomplete=\"off\"><input type=\"submit\" name=\"recovery-submit\" value=\"Reset password\"></form>";
 }
