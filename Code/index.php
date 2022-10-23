@@ -15,17 +15,20 @@ if(isset($_COOKIE['LOGIN'])){
         <link rel="stylesheet" type="text/css" href="css/login.css">
     </head>
     <body>
+        <!--CONTEINER-->
         <div class="conteiner">
             <!--ERROR MSG-->
             <div id="alert">
                 <?php require_once("includes/plugins/alerts/login.plugins.php");?>
             </div>
             <!--LOG IN-->
-            <div id="signin" style="background-color:rgb(11, 38, 119);">
+            <div id="signin" style="background-color:#063e42;">
                 <?php require_once("includes/plugins/services/login.plugins.php");?>
             </div>
             <!--SIGN UP-->
             <a id="signup" href="register.php">Don't have an account yet? Sign up here!</a>
+            <!--COPYRIGHT-->
+            <span id="author">Copyright 2022 by The Asdeki Team. All Rights Reserved.<br>Webiste is Powered by 0nvp</span>
         </div>
         <!--JAVA SCRIPT-->
         <script src="js/recovery.js"></script>

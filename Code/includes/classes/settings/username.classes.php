@@ -6,14 +6,14 @@ class UsernameService extends db{
     protected $_username2;
 
     public function __construct(){
-        $this->_id=$_SESSION['player']['id'];
-        $this->_username1=$_SESSION['player']['username'];
+        $this->_id=$_SESSION['data']['id'];
+        $this->_username1=$_SESSION['data']['username'];
         $this->_username2=$_POST['username-username'];
     }
 
     public function username(){
         $this->_checkCredentials();
-        $_SESSION['player']['username']=$this->_username2;
+        $_SESSION['data']['username']=$this->_username2;
         header("location: ../../../profile.php");
         exit();
     }

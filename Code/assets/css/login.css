@@ -9,14 +9,16 @@
     height: 500px;
     transform: translateX(-50%);
     border-radius: 10px;
+    border-top: 20px solid #063e42;
+    border-bottom: 20px solid #063e42;
     text-align: center;
-    background-color: rgb(11, 38, 119);
-    box-shadow: 1px 1px 20px 10px rgb(7, 22, 68);
+    background-color: #063e42;
+    box-shadow: 1px 1px 20px 10px #177a81;
 }
 h1{
     margin-top: 65px;
     font-size: 35px;
-    background-color: rgb(11, 38, 119);
+    background-color: #063e42;
     color: #ffffff;
 }
 h4{
@@ -24,11 +26,24 @@ h4{
     margin-top: -15px;
     margin-bottom: 70px;
     font-size: 20px;
-    background-color: rgb(11, 38, 119);
+    background-color: #063e42;
     color: #a1a4ad;
 }
+#alert{
+    position: absolute;
+    top: 31%;
+    left: 7.2%;
+    width: 337px;
+    height: 20px;
+    margin: 10px auto 10px;
+    padding: 2px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #063e42;
+    color: #ffffff;
+}
 form{
-    background-color: rgb(11, 38, 119);
+    background-color: #063e42;
 }
 input[type=text], input[type=password]{
     display: block;
@@ -37,7 +52,7 @@ input[type=text], input[type=password]{
     width: 320px;
     border-radius: 5px;
     border: 2px solid #ffffff;
-    background-color: rgb(11, 38, 119);
+    background-color: #063e42;
     color: white;
 }
 input[type=text]:focus, input[type=password]:focus{
@@ -52,13 +67,13 @@ input[type=text]:focus, input[type=password]:focus{
     position: relative;
     right: 25px;
     text-decoration: none;
-    background-color: rgb(11, 38, 119);
+    background-color: #063e42;
     color: #ffffff;
     cursor: pointer;
 }
 a{
     text-decoration: none;
-    background-color: rgb(11, 38, 119);
+    background-color: #063e42;
     color: #ffffff;
 }
 input[type=submit]{
@@ -82,16 +97,11 @@ input[type=submit]:hover{
     top: 92.5%;
     left: 19%;
 }
-#alert{
+#author{
     position: absolute;
-    top: 31%;
-    left: 7.2%;
-    width: 337px;
-    height: 20px;
-    margin: 10px auto 10px;
-    padding: 2px;
-    text-align: center;
-    font-weight: bold;
-    background-color: rgb(11, 38, 119);
-    color: #ffffff;
+    top: 97.5%;
+    left: 19%;
+    font-size: 10px;
+    background-color: #063e42;
+    color: #a1a4ad;
 }

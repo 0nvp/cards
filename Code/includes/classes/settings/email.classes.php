@@ -6,14 +6,14 @@ class EmailService extends db{
     protected $_email2;
 
     public function __construct(){
-        $this->_id=$_SESSION['player']['id'];
-        $this->_email1=$_SESSION['player']['email'];
+        $this->_id=$_SESSION['data']['id'];
+        $this->_email1=$_SESSION['data']['email'];
         $this->_email2=strtolower($_POST['email-email']);
     }
 
     public function email(){
         $this->_checkCredentials();
-        $_SESSION['player']['email']=$this->_email2;
+        $_SESSION['data']['email']=$this->_email2;
         header("location: ../../../profile.php");
         exit();
     }

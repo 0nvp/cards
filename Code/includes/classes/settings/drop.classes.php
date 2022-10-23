@@ -7,7 +7,7 @@ class RemoveService extends db{
 
     public function __construct(){
         $this->_date=date("d M Y H:i:s");
-        $this->_id=$_SESSION['player']['id'];
+        $this->_id=$_SESSION['data']['id'];
         $this->_password=hash("sha3-512", $_POST['drop-password']);
     }
 

@@ -3,7 +3,7 @@ session_start();
 // UID SESSION
 require_once("includes/plugins/services/cookie.plugins.php");
 // COOKIE SESSION
-if(isset($_COOKIE['LOGIN']) && empty($_SESSION['player'])){
+if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
     header("location: includes/inc/services/cookie.inc.php");
     exit();
 }
@@ -19,11 +19,13 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['player'])){
     <body>
         <!--MENU-->
         <div class="sidenav">
-            <a href="home.php">Home</a><br>
+            <span onclick="sideNav('home')">Home</span><br>
             <hr>
-            <a href="ranking.php">Ranking</a><br>
+            <span onclick="sideNav('profile')">Profile</span><br>
             <hr>
-            <a href="includes/inc/logout.inc.php">Logout</a><br>
+            <span onclick="sideNav('ranking')">Ranking</span><br>
+            <hr>
+            <a href="includes/inc/services/logout.inc.php">Logout</a><br>
             <hr>
         </div>
         <!--BODY-->
@@ -36,6 +38,7 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['player'])){
             </div>
         </div>
         <!--JAVA SCRIPT-->
+        <script src="js/home.js"></script>
         <script src="js/personal.js"></script>
     </body>
 </html>

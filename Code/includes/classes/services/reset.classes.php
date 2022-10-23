@@ -17,14 +17,14 @@ class ResetService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_id) || empty($this->_password)){
-            $_SESSION['reset']['empty']=true;
+            $_SESSION['login']['empty']=true;
             header("location: ../../../index.php?id-recovery={$this->_recovery}");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT `id-user` FROM `recovery` WHERE `id-recovery`=?;");
         $stmt->execute(array(hash("sha3-512", $this->_id)));
         if($stmt->rowCount()==0){
-            $_SESSION['reset']['stmt']=true;
+            $_SESSION['login']['stmt']=true;
             header("location: ../../../index.php?id-recovery={$this->_recovery}");
             exit();
         }

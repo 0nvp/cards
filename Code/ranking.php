@@ -15,11 +15,13 @@ require_once("includes/plugins/services/cookie.plugins.php");
     <body>
         <!--MENU-->
         <div class="sidenav">
-            <a href="home.php">Home</a><br>
+            <span onclick="sideNav('home')">Home</span><br>
             <hr>
-            <a href="profile.php">Profile</a><br>
+            <span onclick="sideNav('profile')">Profile</span><br>
             <hr>
-            <a href="includes/inc/logout.inc.php">Logout</a><br>
+            <span onclick="sideNav('ranking')">Ranking</span><br>
+            <hr>
+            <a href="includes/inc/services/logout.inc.php">Logout</a><br>
             <hr>
         </div>
         <!--BODY-->

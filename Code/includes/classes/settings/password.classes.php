@@ -6,7 +6,7 @@ class PasswordService extends db{
     protected $_password2;
 
     public function __construct(){
-        $this->_id=$_SESSION['player']['id'];
+        $this->_id=$_SESSION['data']['id'];
         $this->_password1=$_POST['password-password1'];
         $this->_password2=$_POST['password-password2'];
     }

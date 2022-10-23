@@ -30,7 +30,9 @@ if(isset($_COOKIE['LOGIN'])){
                 <input type="submit" name="register-submit" value="Sign up">
             </form>
             <!--SIGN IN-->
-            <p id="signin">Already have an account? <a href="index.php">Sign in</a></p>
+            <p id="signin"><a href="index.php">Already have an account? Sign in here!</a></p>
+            <!--COPYRIGHT-->
+            <span id="author">Copyright 2022 by The Asdeki Team. All Rights Reserved.<br>Webiste is Powered by 0nvp</span>
         </div>
     </body>
 </html>

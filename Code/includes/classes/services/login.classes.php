@@ -14,7 +14,7 @@ class LoginService extends db{
         session_start();
         $this->_checkCredentials();
         setcookie("LOGIN", $this->_result['id-cookie'], time() + 3600, "/");
-        $_SESSION['player']=array("id"=>$result['id-user'],"email"=>$this->_result['email'],"username"=>$this->_result['username']);
+        $_SESSION['data']=array("id"=>$result['id-user'],"email"=>$this->_result['email'],"username"=>$this->_result['username']);
     }
 
     protected function _checkCredentials(){
@@ -23,11 +23,11 @@ class LoginService extends db{
             header("location: ../../../index.php");
             exit();
         }
-        if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
+        /*if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
             $_SESSION['login']['email']=true;
             header("location: ../../../index.php");
             exit();
-        }
+        }*/
         $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `username`, `email`, `status`, `date` FROM `users` 
         INNER JOIN `status` ON users.`id-user`=status.`id-user` 
         WHERE `email`=? AND `password`=? AND status.`status`=\"active\";");

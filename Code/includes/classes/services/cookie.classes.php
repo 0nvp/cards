@@ -12,7 +12,7 @@ class CookieService extends db{
         session_start();
         $this->_checkCredentials();
         setcookie("LOGIN", $this->_result['id-cookie'], time() + 3600, "/");
-        $_SESSION['player']=array("id-user"=>$this->_result['id-user'],"email"=>$this->_result['email'],"username"=>$this->_result['username']);
+        $_SESSION['data']=array("id-user"=>$this->_result['id-user'],"email"=>$this->_result['email'],"username"=>$this->_result['username']);
     }
 
     protected function _checkCredentials(){
