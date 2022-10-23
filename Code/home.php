@@ -7,6 +7,8 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
     header("location: includes/inc/services/cookie.inc.php");
     exit();
 }
+// AJAX
+require_once("includes/plugins/ajaxes/home.ajax.php");
 ?>
 
 <!DOCTYPE HTML>
@@ -29,7 +31,7 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
             <hr>
         </div>
         <!--BODY-->
-        <div class="main">
+        <div class="main" id="main">
             <h1>Card game by The Asdeki Team</h1>
             <hr>
             <?php print "<h3>Welcome, {$_SESSION['data']['username']}!</h3>";?>
@@ -37,5 +39,6 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
         </div>
         <!--JAVA SCRIPT-->
         <script src="js/home.js"></script>
+        <script src="js/personal.js"></script>
     </body>
 </html>

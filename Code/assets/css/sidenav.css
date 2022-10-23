@@ -24,3 +24,21 @@
     font-size: 28px;
     padding: 0px 10px;
 }
+table{
+    text-align: center;
+    border: 1px solid black;
+    background-color: whitesmoke;
+}
+thead{
+    font-weight: bold;
+}
+td{
+    border: 1px solid black;
+}
+img:hover{
+    width: auto;
+    height: auto;
+}
+.card{
+    padding: 2px;
+}
