@@ -14,19 +14,19 @@ class UsernameService extends db{
     public function username(){
         $this->_checkCredentials();
         $_SESSION['data']['username']=$this->_username2;
-        header("location: ../../../profile.php");
+        header("location: ../../../index.php");
         exit();
     }
 
     protected function _checkCredentials(){
         if(empty($this->_id) || empty($this->_username2)){
-            $_SESSION['username']['empty']=true;
-            header("location: ../../../profile.php");
+            $_SESSION['home']['empty']=true;
+            header("location: ../../../index.php");
             exit();
         }
         if(($this->_username2==$this->_username1) && !preg_match("/^[a-zA-Z0-9]*$/", $this->_username2)){
-            $_SESSION['username']['username']=true;
-            header("location: ../../../profile.php");
+            $_SESSION['home']['username']=true;
+            header("location: ../../../index.php");
             exit();
         }
         $stmt=$this->connect()->prepare("UPDATE `users` SET `username`=? WHERE `id-user`=?;");

@@ -8,7 +8,7 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
     exit();
 }
 // AJAX
-require_once("includes/plugins/ajaxes/home.ajax.php");
+require_once("includes/plugins/ajaxes/home/main.ajax.php");
 ?>
 
 <!DOCTYPE HTML>
@@ -34,6 +34,10 @@ require_once("includes/plugins/ajaxes/home.ajax.php");
         <div class="main" id="main">
             <h1>Card game by The Asdeki Team</h1>
             <hr>
+            <!--ERROR MSG-->
+            <div id="alert">
+                <?php require_once("includes/plugins/alerts/home.plugins.php");?>
+            </div>
             <?php print "<h3>Welcome, {$_SESSION['data']['username']}!</h3>";?>
             <a href="includes/inc/game.inc.php">game</a>
         </div>

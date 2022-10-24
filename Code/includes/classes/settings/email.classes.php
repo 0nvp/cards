@@ -14,26 +14,26 @@ class EmailService extends db{
     public function email(){
         $this->_checkCredentials();
         $_SESSION['data']['email']=$this->_email2;
-        header("location: ../../../profile.php");
+        header("location: ../../../index.php");
         exit();
     }
 
     protected function _checkCredentials(){
         if(empty($this->_id) || empty($this->_email2)){
-            $_SESSION['email']['empty']=true;
-            header("location: ../../../profile.php");
+            $_SESSION['home']['empty']=true;
+            header("location: ../../../index.php");
             exit();
         }
         if(($this->_email2==$this->_email1) && !filter_var($this->_email2, FILTER_VALIDATE_EMAIL)){
-            $_SESSION['email']['email']=true;
-            header("location: ../../../profile.php");
+            $_SESSION['home']['email']=true;
+            header("location: ../../../index.php");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT `email` FROM `users` WHERE `id-user`!=? AND `email`=?;");
         $stmt->execute(array($this->_id, $this->_email2));
         if($stmt->rowCount()>0){
-            $_SESSION['email']['stmt']=true;
-            header("location: ../../../profile.php");
+            $_SESSION['home']['stmt']=true;
+            header("location: ../../../index.php");
             exit();
         }
         $stmt=$this->connect()->prepare("UPDATE `users` SET `email`=? WHERE `id-user`=?;");
