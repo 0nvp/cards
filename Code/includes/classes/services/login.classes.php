@@ -19,21 +19,21 @@ class LoginService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_email) || empty($this->_password)){
-            $_SESSION['login']['empty']=true;
+            $_SESSION['login']="empty";
             header("location: ../../../index.php");
             exit();
         }
-        if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
-            $_SESSION['login']['email']=true;
+        /*if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
+            $_SESSION['login']="email";
             header("location: ../../../index.php");
             exit();
-        }
+        }*/
         $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `username`, `email`, `status`, `date` FROM `users` 
         INNER JOIN `status` ON users.`id-user`=status.`id-user` 
         WHERE `email`=? AND `password`=? AND status.`status`=\"active\";");
         $stmt->execute(array($this->_email, hash("sha3-512", $this->_password)));
         if($stmt->rowCount()==0){
-            $_SESSION['login']['stmt']=true;
+            $_SESSION['login']="stmt";
             header("location: ../../../index.php");
             exit();
         }

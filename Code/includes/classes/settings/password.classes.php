@@ -22,20 +22,20 @@ class PasswordService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_password2)){
-            $_SESSION['home']['empty']=true;
-            header("location: ../../../index.php");
+            $_SESSION['home']="empty";
+            header("location: ../../../home.php");
             exit();
         }
         if($this->_password2==$this->_password1){
-            $_SESSION['home']['password']=true;
-            header("location: ../../../index.php");
+            $_SESSION['home']="password";
+            header("location: ../../../home.php");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `password`=?;");
         $stmt->execute(array(hash("sha3-512", $this->_password1)));
         if($stmt->rowCount()==0){
-            $_SESSION['home']['stmt']=true;
-            header("location: ../../../index.php");
+            $_SESSION['home']="stmt";
+            header("location: ../../../home.php");
             exit();
         }
         $stmt=$this->connect()->prepare("UPDATE `users` SET `password`=? WHERE `id-user`=?;");

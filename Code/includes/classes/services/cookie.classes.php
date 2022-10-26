@@ -17,7 +17,7 @@ class CookieService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_cookie)){
-            $_SESSION['login']['stmt']=true;
+            $_SESSION['login']="stmt";
             header("location: ../../../index.php");
             exit();
         }
@@ -25,7 +25,7 @@ class CookieService extends db{
         WHERE `id-cookie`=? AND `status`=\"active\";");
         $stmt->execute(array($this->_cookie));
         if($stmt->rowCount()==0){
-            $_SESSION['login']['stmt']=true;
+            $_SESSION['login']="stmt";
             header("location: ../../../index.php");
             exit();
         }

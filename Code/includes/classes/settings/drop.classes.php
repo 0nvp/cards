@@ -22,15 +22,15 @@ class RemoveService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_id) || empty($this->_password)){
-            $_SESSION['home']['empty']=true;
-            header("location: ../../../index.php");
+            $_SESSION['home']="empty";
+            header("location: ../../../home.php");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `password`=? AND `id-user`=?;");
         $stmt->execute(array($this->_password, $this->_id));
         if($stmt->rowCount()==0){
-            $_SESSION['home']['stmt']=true;
-            header("location: ../../../index.php");
+            $_SESSION['home']="stmt";
+            header("location: ../../../home.php");
             exit();
         }
         $stmt=$this->connect()->prepare("UPDATE `status` SET `status`=\"removed\", `date`=? WHERE `id-user`=?;");

@@ -5,7 +5,7 @@ function sideNav(value){
             document.getElementById("main").innerHTML=xhttp.responseText;
         }
     }
-    xhttp.open("POST", "home.php", true);
+    xhttp.open("GET", "home.php?p="+value, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("sidenav="+value);
+    xhttp.send();
 }

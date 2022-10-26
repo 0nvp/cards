@@ -19,12 +19,12 @@ class RecoveryService extends db{
 
     protected function _checkCredentials(){
         if(empty($this->_email)){
-            $_SESSION['login']['stmt']=true;
+            $_SESSION['login']="stmt";
             header("location: ../../../index.php");
             exit();
         }
         if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
-            $_SESSION['login']['email']=true;
+            $_SESSION['login']="email";
             header("location: ../../../index.php");
             exit();
         }
@@ -32,7 +32,7 @@ class RecoveryService extends db{
         WHERE recovery.`id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?) AND `status`=\"active\";");
         $stmt->execute(array($this->_email));
         if($stmt->rowCount()==0){
-            $_SESSION['login']['stmt']=true;
+            $_SESSION['login']="stmt";
             header("location: ../../../index.php");
             exit();
         }
