@@ -22,7 +22,7 @@ if(isset($_COOKIE['LOGIN'])){
             </div>
             <!--SIGN UP-->
             <h1>Sign up</h1>
-            <h4>The Asdeki Team</h4>
+            <h4>Your account for everything.</h4>
             <form method="POST" action="includes/inc/services/register.inc.php">
                 <input type="text" name="register-username" placeholder="Username *" required="" autocomplete="off">
                 <input type="text" name="register-email" placeholder="Email *" required="" autocomplete="off">
@@ -30,7 +30,7 @@ if(isset($_COOKIE['LOGIN'])){
                 <input type="submit" name="register-submit" value="Sign up">
             </form>
             <!--SIGN IN-->
-            <p id="signin"><a href="index.php">Already have an account? Sign in here!</a></p>
+            <p id="signin"><a href="./login">Already have an account? Sign in here!</a></p>
             <!--COPYRIGHT-->
             <span id="author">Copyright 2022 by The Asdeki Team. All Rights Reserved.<br>Webiste is Powered by 0nvp</span>
         </div>

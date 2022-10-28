@@ -12,31 +12,29 @@ class RecoveryService extends db{
     public function recovery(){
         session_start();
         $this->_checkCredentials();
-        setcookie("alert", "<span style=\"color:black;\">reset.php?id-recovery={$this->_recovery}</span>", time() + 5, "/");
-        header("location: ../../../config/email.php");
+        header("location: ../../../config/email.php?id-recovery={$this->_recovery}");
         exit();
     }
 
     protected function _checkCredentials(){
         if(empty($this->_email)){
             $_SESSION['login']="stmt";
-            header("location: ../../../index.php");
+            header("location: ../../../login");
             exit();
         }
         if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
             $_SESSION['login']="email";
-            header("location: ../../../index.php");
+            header("location: ../../../login");
             exit();
         }
-        $stmt=$this->connect()->prepare("SELECT recovery.`id-user` FROM `recovery` INNER JOIN `status` ON recovery.`id-user`=status.`id-user` 
-        WHERE recovery.`id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?) AND `status`=\"active\";");
+        $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?) AND `status`=\"active\";");
         $stmt->execute(array($this->_email));
         if($stmt->rowCount()==0){
             $_SESSION['login']="stmt";
-            header("location: ../../../index.php");
+            header("location: ../../../login");
             exit();
         }
-        $stmt=$this->connect()->prepare("UPDATE `recovery` SET `id-recovery`=? WHERE `id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?);");
+        $stmt=$this->connect()->prepare("UPDATE `users` SET `id-recovery`=? WHERE `id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?);");
         $stmt->execute(array(hash("sha3-512", $this->_recovery), $this->_email));
         $stmt=null;
     }

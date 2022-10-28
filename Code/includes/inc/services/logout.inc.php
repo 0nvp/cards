@@ -4,5 +4,5 @@ session_unset();
 session_destroy();
 setcookie("LOGIN", "", time() - 3600, "/");
 
-header("location: ../../../index.php");
+header("location: ../../../login");
 ?>

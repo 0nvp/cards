@@ -16,26 +16,28 @@ class PasswordService extends db{
         setcookie("LOGIN", "", time() - 3600, "/");
         session_unset();
         session_destroy();
-        header("location: ../../../index.php");
+        session_start();
+        $_SESSION['login']="update";
+        header("location: ../../../login");
         exit();
     }
 
     protected function _checkCredentials(){
         if(empty($this->_password2)){
             $_SESSION['home']="empty";
-            header("location: ../../../home.php");
+            header("location: ../../../home");
             exit();
         }
         if($this->_password2==$this->_password1){
             $_SESSION['home']="password";
-            header("location: ../../../home.php");
+            header("location: ../../../home");
             exit();
         }
         $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `password`=?;");
         $stmt->execute(array(hash("sha3-512", $this->_password1)));
         if($stmt->rowCount()==0){
             $_SESSION['home']="stmt";
-            header("location: ../../../home.php");
+            header("location: ../../../home");
             exit();
         }
         $stmt=$this->connect()->prepare("UPDATE `users` SET `password`=? WHERE `id-user`=?;");

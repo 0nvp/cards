@@ -19,10 +19,26 @@
     color: #f1f1f1;
     cursor: pointer;
 }
+#alert{
+    position: absolute;
+    top: 44%;
+    left: 9%;
+    width: 337px;
+    height: 20px;
+    margin: 10px auto 10px;
+    padding: 2px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
 .main{
     margin-left: 180px;
     font-size: 28px;
     padding: 0px 10px;
+}
+.level{
+    width: 500px;
+    background-color: #ddd;
 }
 table{
     text-align: center;
@@ -33,12 +49,8 @@ thead{
     font-weight: bold;
 }
 td{
+    width: 100%;
+}
+td{
     border: 1px solid black;
-}
-img:hover{
-    width: auto;
-    height: auto;
-}
-.card{
-    padding: 2px;
 }

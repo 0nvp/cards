@@ -1,1 +1,5 @@
-<?php if(isset($_COOKIE['alert'])){print $_COOKIE['alert'];setcookie("alert", "", time() - 10, "/");}?>
+<?php
+if(isset($_GET['id-recovery'])){
+    print $_GET['id-recovery'];
+}
+?>

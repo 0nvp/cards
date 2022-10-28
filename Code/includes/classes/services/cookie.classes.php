@@ -12,21 +12,22 @@ class CookieService extends db{
         session_start();
         $this->_checkCredentials();
         setcookie("LOGIN", $this->_result['id-cookie'], time() + 3600, "/");
-        $_SESSION['data']=array("id-user"=>$this->_result['id-user'],"email"=>$this->_result['email'],"username"=>$this->_result['username']);
+        $_SESSION['data']=array("id-user"=>$this->_result['id-user'], "email"=>$this->_result['email'], "username"=>$this->_result['username'],
+        "level"=>$this->_result['level'], "xp"=>$this->_result['xp']);
     }
 
     protected function _checkCredentials(){
         if(empty($this->_cookie)){
             $_SESSION['login']="stmt";
-            header("location: ../../../index.php");
+            header("location: ../../../login");
             exit();
         }
-        $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `email`, `username` FROM `users` INNER JOIN `status` ON users.`id-user`=status.`id-user` 
+        $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `email`, `username`, `level`, `xp` FROM `users` INNER JOIN `data` ON users.`id-user`=data.`id-user` 
         WHERE `id-cookie`=? AND `status`=\"active\";");
         $stmt->execute(array($this->_cookie));
         if($stmt->rowCount()==0){
             $_SESSION['login']="stmt";
-            header("location: ../../../index.php");
+            header("location: ../../../login");
             exit();
         }
         $this->_result=$stmt->fetch(PDO::FETCH_ASSOC);

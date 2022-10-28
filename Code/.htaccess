@@ -5,3 +5,9 @@ RewriteRule ^css/(.*\.css)$ assets/css/$1 [L,NC]
 RewriteRule ^js/(.*\.js)$ assets/js/$1 [L,NC]
 # IMAGES
 RewriteRule ^images/(.*\.png)$ assets/images/$1 [L,NC]
+# INDEX
+RewriteRule ^login$ index.php [L,NC]
+# REGISTER
+RewriteRule ^sign-up$ register.php [L,NC]
+# HOME
+RewriteRule ^home$ home.php [L,NC]

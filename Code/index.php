@@ -26,7 +26,7 @@ if(isset($_COOKIE['LOGIN'])){
                 <?php require_once("includes/plugins/services/login.plugins.php");?>
             </div>
             <!--SIGN UP-->
-            <a id="signup" href="register.php">Don't have an account yet? Sign up here!</a>
+            <a id="signup" href="./sign-up">Don't have an account yet? Sign up here!</a>
             <!--COPYRIGHT-->
             <span id="author">Copyright 2022 by The Asdeki Team. All Rights Reserved.<br>Webiste is Powered by 0nvp</span>
         </div>
