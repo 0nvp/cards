@@ -7,6 +7,8 @@ RewriteRule ^js/(.*\.js)$ assets/js/$1 [L,NC]
 RewriteRule ^images/(.*\.png)$ assets/images/$1 [L,NC]
 # INDEX
 RewriteRule ^login$ index.php [L,NC]
+# RECOVERY
+RewriteRule ^recovery=(.*)$ index.php?id-recovery=$1 [L,NC]
 # REGISTER
 RewriteRule ^sign-up$ register.php [L,NC]
 # HOME

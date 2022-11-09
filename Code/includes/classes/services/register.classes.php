@@ -26,11 +26,11 @@ class RegisterService extends db{
             header("location: ../../../sign-up");
             exit();
         }
-        if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
+        /*if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
             $_SESSION['register']="email";
             header("location: ../../../sign-up");
             exit();
-        }
+        }*/
         if(!preg_match("/^[a-zA-Z0-9]*$/", $this->_username)){
             $_SESSION['register']="username";
             header("location: ../../../sign-up");

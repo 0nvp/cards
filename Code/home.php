@@ -33,7 +33,9 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
                 <?php require_once("includes/plugins/alerts/home.plugins.php");?>
             </div>
         <!--BODY-->
-        <?php require_once("includes/plugins/services/home.plugins.php");?>
+        <div class="main" id="main">
+            <?php require_once("includes/plugins/services/home.plugins.php");?>
+        </div>
         <!--JAVA SCRIPT-->
         <script src="js/home.js"></script>
         <script src="js/personal.js"></script>

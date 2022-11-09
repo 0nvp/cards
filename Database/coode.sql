@@ -21,6 +21,9 @@ SET time_zone = "+00:00";
 -- Baza danych: `coode`
 --
 
+CREATE DATABASE `coode`;
+USE `coode`;
+
 -- --------------------------------------------------------
 
 --
