@@ -21,7 +21,7 @@ class EmailService extends db{
     protected function _checkCredentials(){
         switch($this->_email2){
             case empty($this->_email2):
-                $_SESSION['home']="empty";
+                $_SESSION['home']="emptyEmail";
                 header("location: ../../../home");
                 exit();.
                 break;

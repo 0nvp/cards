@@ -25,7 +25,7 @@ class PasswordService extends db{
     protected function _checkCredentials(){
         switch($this->_password2){
             case empty($this->_password2):
-                $_SESSION['home']="empty";
+                $_SESSION['home']="emptyPassword";
                 header("location: ../../../home");
                 exit();
                 break;

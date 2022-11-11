@@ -20,8 +20,8 @@ class ResetService extends db{
     protected function _checkCredentials(){
         switch($this->_id){
             case empty($this->_id):
-                $_SESSION['login']="empty";
-                header("location: ../../../recovery={$this->_id}");
+                $_SESSION['login']="emptyId";
+                header("location: ../../../login");
                 exit();
                 break;
             default:
@@ -29,7 +29,7 @@ class ResetService extends db{
         }
         switch($this->_password){
             case empty($this->_password):
-                $_SESSION['login']="empty";
+                $_SESSION['login']="emptyPassword";
                 header("location: ../../../recovery={$this->_id}");
                 exit();
                 break;

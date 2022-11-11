@@ -21,7 +21,7 @@ class UsernameService extends db{
     protected function _checkCredentials(){
         switch($this->_username2){
             case empty($this->_username2):
-                $_SESSION['home']="empty";
+                $_SESSION['home']="emptyUsername";
                 header("location: ../../../home");
                 exit();
                 break;
@@ -36,6 +36,13 @@ class UsernameService extends db{
                 exit();
                 break;
             default:
+                $stmt=$this->connect()->prepare("SELECT `username` FROM `data` WHERE `username`=?;");
+                $stmt->execute(array($this->_username));
+                if($stmt->rowCount()>0){
+                    $_SESSION['home']="username";
+                    header("location: ../../../sign-up");
+                    exit();
+                }
                 break;
         }
         $stmt=$this->connect()->prepare("UPDATE `data` SET `username`=? WHERE `id-user`=?;");

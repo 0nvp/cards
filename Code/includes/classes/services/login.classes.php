@@ -22,7 +22,7 @@ class LoginService extends db{
     protected function _checkCredentials(){
         switch($this->_email){
             case empty($this->_email):
-                $_SESSION['login']="empty";
+                $_SESSION['login']="emptyEmail";
                 header("location: ../../../login");
                 exit();
                 break;
@@ -36,7 +36,7 @@ class LoginService extends db{
         }
         switch($this->_password){
             case empty($this->_password):
-                $_SESSION['login']="empty";
+                $_SESSION['login']="emptyPassword";
                 header("location: ../../../login");
                 exit();
                 break;

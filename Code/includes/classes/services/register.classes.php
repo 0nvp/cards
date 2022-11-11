@@ -22,23 +22,9 @@ class RegisterService extends db{
     }
 
     protected function _checkCredentials(){
-        switch($this->_username) {
-            case empty($this->_username):
-                $_SESSION['register']="empty";
-                header("location: ../../../sign-up");
-                exit();
-                break;
-            case !preg_match("/^[a-zA-Z0-9]*$/", $this->_username):
-                $_SESSION['register']="username";
-                header("location: ../../../sign-up");
-                exit();
-                break;
-            default:
-                break;
-        }
         switch($this->_password){
             case empty($this->_password):
-                $_SESSION['register']="empty";
+                $_SESSION['register']="emptyPassword";
                 header("location: ../../../sign-up");
                 exit();
                 break;
@@ -50,9 +36,30 @@ class RegisterService extends db{
             default:
                 break;
         }
+        switch($this->_username) {
+            case empty($this->_username):
+                $_SESSION['register']="emptyUsername";
+                header("location: ../../../sign-up");
+                exit();
+                break;
+            case !preg_match("/^[a-zA-Z0-9]*$/", $this->_username):
+                $_SESSION['register']="username";
+                header("location: ../../../sign-up");
+                exit();
+                break;
+            default:
+                $stmt=$this->connect()->prepare("SELECT `username` FROM `data` WHERE `username`=?;");
+                $stmt->execute(array($this->_username));
+                if($stmt->rowCount()>0){
+                    $_SESSION['register']="username";
+                    header("location: ../../../sign-up");
+                    exit();
+                }
+                break;
+        }
         switch($this->_email){
             case empty($this->_email):
-                $_SESSION['register']="empty";
+                $_SESSION['register']="emptyEmail";
                 header("location: ../../../sign-up");
                 exit();
                 break;

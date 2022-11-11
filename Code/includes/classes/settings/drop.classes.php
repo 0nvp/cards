@@ -23,7 +23,7 @@ class RemoveService extends db{
     protected function _checkCredentials(){
         switch($this->_password){
             case empty($this->_password):
-                $_SESSION['home']="empty";
+                $_SESSION['home']="emptyPassword";
                 header("location: ../../../home");
                 exit();
                 break;
