@@ -21,17 +21,26 @@ class RemoveService extends db{
     }
 
     protected function _checkCredentials(){
-        if(empty($this->_id) || empty($this->_password)){
-            $_SESSION['home']="empty";
-            header("location: ../../../home");
-            exit();
-        }
-        $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `password`=? AND `id-user`=?;");
-        $stmt->execute(array($this->_password, $this->_id));
-        if($stmt->rowCount()==0){
-            $_SESSION['home']="stmt";
-            header("location: ../../../home");
-            exit();
+        switch($this->_password){
+            case empty($this->_password):
+                $_SESSION['home']="empty";
+                header("location: ../../../home");
+                exit();
+                break;
+            case !preg_match("/^[a-zA-Z0-9]*$/", $this->_password):
+                $_SESSION['home']="password";
+                header("location: ../../../home");
+                exit();
+                break;
+            default:
+                $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `password`=? AND `id-user`=?;");
+                $stmt->execute(array($this->_password, $this->_id));
+                if($stmt->rowCount()==0){
+                    $_SESSION['home']="stmt";
+                    header("location: ../../../home");
+                    exit();
+                }
+                break;
         }
         $stmt=$this->connect()->prepare("UPDATE `users` SET `status`=\"removed\" WHERE `id-user`=?;");
         $stmt->execute(array($this->_id));

@@ -23,22 +23,31 @@ class PasswordService extends db{
     }
 
     protected function _checkCredentials(){
-        if(empty($this->_password2)){
-            $_SESSION['home']="empty";
-            header("location: ../../../home");
-            exit();
-        }
-        if($this->_password2==$this->_password1){
-            $_SESSION['home']="password";
-            header("location: ../../../home");
-            exit();
-        }
-        $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `password`=?;");
-        $stmt->execute(array(hash("sha3-512", $this->_password1)));
-        if($stmt->rowCount()==0){
-            $_SESSION['home']="stmt";
-            header("location: ../../../home");
-            exit();
+        switch($this->_password2){
+            case empty($this->_password2):
+                $_SESSION['home']="empty";
+                header("location: ../../../home");
+                exit();
+                break;
+            case $this->_password2==$this->_password1:
+                $_SESSION['home']="password";
+                header("location: ../../../home");
+                exit();
+                break;
+            case !preg_match("/^[a-zA-Z0-9]*$/", $this->_password2):
+                $_SESSION['home']="password";
+                header("location: ../../../home");
+                exit();
+                break;
+            default:
+                $stmt=$this->connect()->prepare("SELECT `id-user` FROM `users` WHERE `password`=?;");
+                $stmt->execute(array(hash("sha3-512", $this->_password1)));
+                if($stmt->rowCount()==0){
+                    $_SESSION['home']="stmt";
+                    header("location: ../../../home");
+                    exit();
+                }
+                break;
         }
         $stmt=$this->connect()->prepare("UPDATE `users` SET `password`=? WHERE `id-user`=?;");
         $stmt->execute(array(hash("sha3-512", $this->_password2), $this->_id));

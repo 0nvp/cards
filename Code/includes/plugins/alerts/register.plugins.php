@@ -5,12 +5,16 @@ if(isset($_SESSION['register'])){
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">some fields are empty</span>";
             unset($_SESSION['register']);
             break;
+        case "username":
+            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">username is incorrect</span>";
+            unset($_SESSION['register']);
+            break;
         case "email":
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">email is incorrect</span>";
             unset($_SESSION['register']);
             break;
-        case "username":
-            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">username is incorrect</span>";
+        case "password":
+            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">password is incorrect</span>";
             unset($_SESSION['register']);
             break;
         case "stmt":

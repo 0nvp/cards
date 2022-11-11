@@ -17,18 +17,22 @@ class CookieService extends db{
     }
 
     protected function _checkCredentials(){
-        if(empty($this->_cookie)){
-            $_SESSION['login']="stmt";
-            header("location: ../../../login");
-            exit();
-        }
-        $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `email`, `username`, `level`, `xp` FROM `users` INNER JOIN `data` ON users.`id-user`=data.`id-user` 
-        WHERE `id-cookie`=? AND `status`=\"active\";");
-        $stmt->execute(array($this->_cookie));
-        if($stmt->rowCount()==0){
-            $_SESSION['login']="stmt";
-            header("location: ../../../login");
-            exit();
+        switch($this->_cookie){
+            case empty($this->_cookie):
+                $_SESSION['login']="stmt";
+                header("location: ../../../login");
+                exit();
+                break;
+            default:
+                $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `email`, `username`, `level`, `xp` FROM `users` INNER JOIN `data` 
+                ON users.`id-user`=data.`id-user` WHERE `id-cookie`=? AND `status`=\"active\";");
+                $stmt->execute(array($this->_cookie));
+                if($stmt->rowCount()==0){
+                    $_SESSION['login']="stmt";
+                    header("location: ../../../login");
+                    exit();
+                }
+                break;
         }
         $this->_result=$stmt->fetch(PDO::FETCH_ASSOC);
         $stmt=null;

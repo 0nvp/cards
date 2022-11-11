@@ -9,6 +9,10 @@ if(isset($_SESSION['login'])){
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">email is incorrect</span>";
             unset($_SESSION['login']);
             break;
+        case "password":
+            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">password is incorrect</span>";
+            unset($_SESSION['login']);
+            break;
         case "stmt":
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">stmt error</span>";
             unset($_SESSION['login']);
@@ -18,6 +22,10 @@ if(isset($_SESSION['login'])){
             unset($_SESSION['login']);
             break;
         case "update":
+            print "<span style=\"color:green;background-color:#063e42;font-size:30px;\">successfully updated</span>";
+            unset($_SESSION['login']);
+            break;
+        case "reset":
             print "<span style=\"color:green;background-color:#063e42;font-size:30px;\">successfully updated</span>";
             unset($_SESSION['login']);
             break;

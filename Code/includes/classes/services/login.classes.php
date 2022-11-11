@@ -20,23 +20,41 @@ class LoginService extends db{
     }
 
     protected function _checkCredentials(){
-        if(empty($this->_email) || empty($this->_password)){
-            $_SESSION['login']="empty";
-            header("location: ../../../login");
-            exit();
+        switch($this->_email){
+            case empty($this->_email):
+                $_SESSION['login']="empty";
+                header("location: ../../../login");
+                exit();
+                break;
+            case !filter_var($this->_email, FILTER_VALIDATE_EMAIL):
+                $_SESSION['login']="email";
+                header("location: ../../../login");
+                exit();
+                break;
+            default:
+                break;
         }
-        /*if(!filter_var($this->_email, FILTER_VALIDATE_EMAIL)){
-            $_SESSION['login']="email";
-            header("location: ../../../login");
-            exit();
-        }*/
-        $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `username`, `email`, `level`, `xp` FROM `users` 
-        INNER JOIN `data` ON users.`id-user`=data.`id-user` WHERE `email`=? AND `password`=? AND `status`=\"active\";");
-        $stmt->execute(array($this->_email, hash("sha3-512", $this->_password)));
-        if($stmt->rowCount()==0){
-            $_SESSION['login']="stmt";
-            header("location: ../../../login");
-            exit();
+        switch($this->_password){
+            case empty($this->_password):
+                $_SESSION['login']="empty";
+                header("location: ../../../login");
+                exit();
+                break;
+            case !preg_match("/^[a-zA-Z0-9]*$/", $this->_password):
+                $_SESSION['login']="password";
+                header("location: ../../../login");
+                exit();
+                break;
+            default:
+                $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `username`, `email`, `level`, `xp` FROM `users` 
+                INNER JOIN `data` ON users.`id-user`=data.`id-user` WHERE `email`=? AND `password`=? AND `status`=\"active\";");
+                $stmt->execute(array($this->_email, hash("sha3-512", $this->_password)));
+                if($stmt->rowCount()==0){
+                    $_SESSION['login']="stmt";
+                    header("location: ../../../login");
+                    exit();
+                }
+                break;
         }
         $this->_result=$stmt->fetch(PDO::FETCH_ASSOC);
         $stmt=null;
