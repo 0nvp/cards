@@ -42,7 +42,7 @@ if(isset($_SESSION['home'])){
             unset($_SESSION['home']);
             break;
         case "stmt":
-            print "<span style=\"color:red;font-size:30px;\">the session was unexpectedly closed.</span>";
+            print "<span style=\"color:red;font-size:30px;\">personal data error, try again later.</span>";
             unset($_SESSION['home']);
             break;
         case "saved":

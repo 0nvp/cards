@@ -14,10 +14,10 @@ require_once("includes/inc/ajax.inc.php");
         <link rel="stylesheet" type="text/css" href="css/game.css">
     </head>
     <body>
-        <!--TABLE-->
+        <!--IMG-->
         <div class="table">
             <img src="images/icons/table.png" width="1024" height="816" alt="table">
-            <!--COUNT CARDS-->
+            <!--NUMBER OF CARDS-->
             <div id="computer">
                 <?php print count($_SESSION['computer']['array']);?>
             </div>
@@ -25,9 +25,11 @@ require_once("includes/inc/ajax.inc.php");
                 <?php print count($_SESSION['player']['array']);?>
             </div>
         </div>
+        <!--GAME-->
         <div class="game">
-            <?php require_once("includes/plugins/deck.plugins.php");?>
+            <?php require_once("includes/plugins/games/deck.plugins.php");?>
         </div>
+        <!--MENU-->
         <div id="menu" class="menu">
             <?php if(empty($_SESSION['game']['status'])){
             print "<img style=\"cursor:pointer;\" src=\"images/cards/default/back_of_card.png\" 

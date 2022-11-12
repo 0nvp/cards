@@ -13,3 +13,4 @@ RewriteRule ^recovery=(.*)$ index.php?id-recovery=$1 [L,NC]
 RewriteRule ^sign-up$ register.php [L,NC]
 # HOME
 RewriteRule ^home$ home.php [L,NC]
+# GAME

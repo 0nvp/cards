@@ -1,3 +1,4 @@
+/*REGISTER*/
 *{
     background-color: rgb(9, 17, 29);
 }
@@ -42,7 +43,10 @@ h4{
     background-color: #063e42;
     color: #ffffff;
 }
-form, p{
+#signup{
+    background-color: #063e42;
+}
+form{
     background-color: #063e42;
     color: #ffffff
 }
@@ -86,7 +90,7 @@ input[type=submit]:hover{
 }
 #signin{
     position: absolute;
-    top: 90.5%;
+    top: 93%;
     left: 19%;
 }
 #author{

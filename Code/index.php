@@ -22,7 +22,7 @@ if(isset($_COOKIE['LOGIN'])){
                 <?php require_once("includes/plugins/alerts/login.plugins.php");?>
             </div>
             <!--LOG IN-->
-            <div id="signin" style="background-color:#063e42;">
+            <div id="signin">
                 <?php require_once("includes/plugins/services/login.plugins.php");?>
             </div>
             <!--SIGN UP-->

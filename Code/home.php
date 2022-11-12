@@ -30,8 +30,8 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
         </div>
         <!--ERROR MSG-->
         <div id="alert">
-                <?php require_once("includes/plugins/alerts/home.plugins.php");?>
-            </div>
+            <?php require_once("includes/plugins/alerts/home.plugins.php");?>
+        </div>
         <!--BODY-->
         <div class="main" id="main">
             <?php require_once("includes/plugins/services/home.plugins.php");?>

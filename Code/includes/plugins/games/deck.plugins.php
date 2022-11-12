@@ -1,4 +1,5 @@
 <?php
+// TO FIX
 if(empty($_SESSION['game']['status'])){
     // COMPUTER
     for($i=0;$i<$_SESSION['game']['i'];$i++){

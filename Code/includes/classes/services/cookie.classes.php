@@ -19,7 +19,7 @@ class CookieService extends db{
     protected function _checkCredentials(){
         switch($this->_cookie){
             case empty($this->_cookie):
-                $_SESSION['login']="stmt";
+                $_SESSION['login']="cookie";
                 header("location: ../../../login");
                 exit();
                 break;
@@ -28,7 +28,7 @@ class CookieService extends db{
                 ON users.`id-user`=data.`id-user` WHERE `id-cookie`=? AND `status`=\"active\";");
                 $stmt->execute(array($this->_cookie));
                 if($stmt->rowCount()==0){
-                    $_SESSION['login']="stmt";
+                    $_SESSION['login']="cookie";
                     header("location: ../../../login");
                     exit();
                 }

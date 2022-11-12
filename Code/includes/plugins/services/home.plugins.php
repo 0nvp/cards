@@ -18,7 +18,7 @@ switch($_SESSION['p']){
         onclick=\"reUsername()\">edit</span></div>";
         print "<div id=\"email\">Email: {$_SESSION['data']['email']} <span id=\"emailSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"reEmail()\">edit</span></div>";
         print "<div id=\"password\">Password: ******** <span id=\"passwordSpan\" style=\"color:blue;cursor:pointer;\" onclick=\"rePassword()\">edit</span></div><br><br><br><br>";
-        print "<br><br><div id=\"drop\"><span id=\"delAcc\" style=\"color:blue;cursor:pointer;\" onclick=\"confirmDelAcc()\">Delete account</span></div></div>\n";
+        print "<br><br><div id=\"drop\"><span id=\"delAcc\" style=\"color:blue;cursor:pointer;\" onclick=\"delAcc()\">Delete account</span></div></div>\n";
         break;
     case "ranking":
         // LOGO
@@ -33,7 +33,7 @@ switch($_SESSION['p']){
     default:
         // LOGO
         print "\t<h1>Card game by The Asdeki Team</h1><hr><h3>Welcome, {$_SESSION['data']['username']}!</h3>
-        <a href=\"includes/inc/game.inc.php\">game</a>\n";
+        <a href=\"includes/inc/games/game.inc.php\">game</a>\n";
         break;
 }
 ?>

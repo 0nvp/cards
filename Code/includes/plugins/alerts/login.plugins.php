@@ -22,6 +22,10 @@ if(isset($_SESSION['login'])){
             unset($_SESSION['login']);
             break;
         case "stmt":
+            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">some errors occurred.</span>";
+            unset($_SESSION['login']);
+            break;
+        case "cookie":
             print "<span style=\"color:red;background-color:#063e42;font-size:20px;\">the session was unexpectedly closed.</span>";
             unset($_SESSION['login']);
             break;
