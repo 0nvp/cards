@@ -13,6 +13,7 @@ class EmailService extends db{
 
     public function email(){
         $this->_checkCredentials();
+        $_SESSION['home']="saved";
         $_SESSION['data']['email']=$this->_email2;
         header("location: ../../../home");
         exit();
@@ -26,12 +27,12 @@ class EmailService extends db{
                 exit();.
                 break;
             case $this->_email2==$this->_email1:
-                $_SESSION['home']="email";
+                $_SESSION['home']="emailMatch";
                 header("location: ../../../home");
                 exit();
                 break;
             case !filter_var($this->_email2, FILTER_VALIDATE_EMAIL):
-                $_SESSION['home']="email";
+                $_SESSION['home']="emailPolity";
                 header("location: ../../../home");
                 exit();
                 break;

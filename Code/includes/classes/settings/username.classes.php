@@ -13,6 +13,7 @@ class UsernameService extends db{
 
     public function username(){
         $this->_checkCredentials();
+        $_SESSION['home']="saved";
         $_SESSION['data']['username']=$this->_username2;
         header("location: ../../../home");
         exit();
@@ -26,12 +27,12 @@ class UsernameService extends db{
                 exit();
                 break;
             case $this->_username2==$this->_username1:
-                $_SESSION['home']="username";
+                $_SESSION['home']="usernameMatch";
                 header("location: ../../../home");
                 exit();
                 break;
             case !preg_match("/^[a-zA-Z0-9]*$/", $this->_username2):
-                $_SESSION['home']="username";
+                $_SESSION['home']="usernamePolity";
                 header("location: ../../../home");
                 exit();
                 break;
@@ -39,7 +40,7 @@ class UsernameService extends db{
                 $stmt=$this->connect()->prepare("SELECT `username` FROM `data` WHERE `username`=?;");
                 $stmt->execute(array($this->_username));
                 if($stmt->rowCount()>0){
-                    $_SESSION['home']="username";
+                    $_SESSION['home']="usernameUse";
                     header("location: ../../../sign-up");
                     exit();
                 }

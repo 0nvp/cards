@@ -28,7 +28,7 @@ class RemoveService extends db{
                 exit();
                 break;
             case !preg_match("/^[a-zA-Z0-9]*$/", $this->_password):
-                $_SESSION['home']="password";
+                $_SESSION['home']="passwordPolity";
                 header("location: ../../../home");
                 exit();
                 break;

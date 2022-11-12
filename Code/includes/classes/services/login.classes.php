@@ -27,7 +27,7 @@ class LoginService extends db{
                 exit();
                 break;
             case !filter_var($this->_email, FILTER_VALIDATE_EMAIL):
-                $_SESSION['login']="email";
+                $_SESSION['login']="emailPolity";
                 header("location: ../../../login");
                 exit();
                 break;
@@ -41,7 +41,7 @@ class LoginService extends db{
                 exit();
                 break;
             case !preg_match("/^[a-zA-Z0-9]*$/", $this->_password):
-                $_SESSION['login']="password";
+                $_SESSION['login']="passwordPolity";
                 header("location: ../../../login");
                 exit();
                 break;

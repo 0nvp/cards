@@ -16,7 +16,7 @@ class RegisterService extends db{
     public function register(){
         session_start();
         $this->_checkCredentials();
-        $_SESSION['login']="account";
+        $_SESSION['login']="register";
         header("location: ../../../login");
         exit();
     }
@@ -29,7 +29,7 @@ class RegisterService extends db{
                 exit();
                 break;
             case !preg_match("/^[a-zA-Z0-9]*$/", $this->_password):
-                $_SESSION['register']="password";
+                $_SESSION['register']="passwordPolity";
                 header("location: ../../../sign-up");
                 exit();
                 break;
@@ -43,7 +43,7 @@ class RegisterService extends db{
                 exit();
                 break;
             case !preg_match("/^[a-zA-Z0-9]*$/", $this->_username):
-                $_SESSION['register']="username";
+                $_SESSION['register']="usernamePolity";
                 header("location: ../../../sign-up");
                 exit();
                 break;
@@ -51,7 +51,7 @@ class RegisterService extends db{
                 $stmt=$this->connect()->prepare("SELECT `username` FROM `data` WHERE `username`=?;");
                 $stmt->execute(array($this->_username));
                 if($stmt->rowCount()>0){
-                    $_SESSION['register']="username";
+                    $_SESSION['register']="usernameUse";
                     header("location: ../../../sign-up");
                     exit();
                 }
@@ -64,7 +64,7 @@ class RegisterService extends db{
                 exit();
                 break;
             case !filter_var($this->_email, FILTER_VALIDATE_EMAIL):
-                $_SESSION['register']="email";
+                $_SESSION['register']="emailPolity";
                 header("location: ../../../sign-up");
                 exit();
                 break;

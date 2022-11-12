@@ -24,7 +24,7 @@ class RecoveryService extends db{
                 exit();
                 break;
             case !filter_var($this->_email, FILTER_VALIDATE_EMAIL):
-                $_SESSION['login']="email";
+                $_SESSION['login']="emailPolity";
                 header("location: ../../../login");
                 exit();
                 break;

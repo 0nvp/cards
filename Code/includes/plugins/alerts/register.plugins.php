@@ -13,20 +13,24 @@ if(isset($_SESSION['register'])){
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">password field is empty.</span>";
             unset($_SESSION['register']);
             break;
-        case "username":
+        case "usernamePolity":
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">username is incorrect.</span>";
             unset($_SESSION['register']);
             break;
-        case "email":
+        case "usernameUse":
+            print "<span style=\"color:red;background-color:#063e42;font-size:20px;\">sorry, this username is not available.</span>";
+            unset($_SESSION['register']);
+            break;
+        case "emailPolity":
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">email is incorrect.</span>";
             unset($_SESSION['register']);
             break;
-        case "password":
+        case "passwordPolity":
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">password is incorrect.</span>";
             unset($_SESSION['register']);
             break;
         case "stmt":
-            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">stmt error.</span>";
+            print "<span style=\"color:red;background-color:#063e42;font-size:20px;\">register error, try again later.</span>";
             unset($_SESSION['register']);
             break;
         default:

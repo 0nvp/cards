@@ -13,32 +13,32 @@ if(isset($_SESSION['login'])){
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">recovery link does not exist.</span>";
             unset($_SESSION['login']);
             break;
-        case "email":
+        case "emailPolity":
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">email is incorrect.</span>";
             unset($_SESSION['login']);
             break;
-        case "password":
+        case "passwordPolity":
             print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">password is incorrect.</span>";
             unset($_SESSION['login']);
             break;
         case "stmt":
-            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">stmt error.</span>";
+            print "<span style=\"color:red;background-color:#063e42;font-size:20px;\">the session was unexpectedly closed.</span>";
             unset($_SESSION['login']);
             break;
-        case "account":
-            print "<span style=\"color:green;background-color:#063e42;font-size:30px;\">successfully registered.</span>";
+        case "register":
+            print "<span style=\"color:green;background-color:#063e42;font-size:20px;\">account has been successfully registered.</span>";
             unset($_SESSION['login']);
             break;
-        case "update":
-            print "<span style=\"color:green;background-color:#063e42;font-size:30px;\">successfully updated.</span>";
+        case "passwordUpdate":
+            print "<span style=\"color:green;background-color:#063e42;font-size:20px;\">password has been successfully updated.</span>";
             unset($_SESSION['login']);
             break;
         case "reset":
-            print "<span style=\"color:green;background-color:#063e42;font-size:30px;\">successfully updated.</span>";
+            print "<span style=\"color:green;background-color:#063e42;font-size:20px;\">password has been successfully updated.</span>";
             unset($_SESSION['login']);
             break;
         case "drop":
-            print "<span style=\"color:green;background-color:#063e42;font-size:30px;\">we are soory to say goodbye to You.</span>";
+            print "<span style=\"color:green;background-color:#063e42;font-size:20px;\">we are soory, to say goodbye to You.</span>";
             unset($_SESSION['login']);
             break;
         default:

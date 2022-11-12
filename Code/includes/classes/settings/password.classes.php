@@ -17,7 +17,7 @@ class PasswordService extends db{
         session_unset();
         session_destroy();
         session_start();
-        $_SESSION['login']="update";
+        $_SESSION['login']="passwordUpdate";
         header("location: ../../../login");
         exit();
     }
@@ -30,12 +30,12 @@ class PasswordService extends db{
                 exit();
                 break;
             case $this->_password2==$this->_password1:
-                $_SESSION['home']="password";
+                $_SESSION['home']="passwordMatch";
                 header("location: ../../../home");
                 exit();
                 break;
             case !preg_match("/^[a-zA-Z0-9]*$/", $this->_password2):
-                $_SESSION['home']="password";
+                $_SESSION['home']="passwordPolity";
                 header("location: ../../../home");
                 exit();
                 break;

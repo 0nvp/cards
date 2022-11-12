@@ -34,7 +34,7 @@ class ResetService extends db{
                 exit();
                 break;
             case !preg_match("/^[a-zA-Z0-9]*$/", $this->_password):
-                $_SESSION['login']="password";
+                $_SESSION['login']="passwordPolity";
                 header("location: ../../../recovery={$this->_id}");
                 exit();
                 break;
