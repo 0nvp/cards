@@ -10,7 +10,8 @@ class RankingService extends db{
     }
 
     protected function _checkCredentials(){
-        $stmt=$this->connect()->query("SELECT `username`, `level` FROM `users` INNER JOIN `data` ON users.`id-user`=data.`id-user` WHERE `status`=\"active\";");
+        $stmt=$this->connect()->query("SELECT `username`, `level`, `gold` FROM `users` INNER JOIN `data` ON users.`id-user`=data.`id-user` WHERE `status`=\"active\" 
+        ORDER BY `gold` DESC;");
         $ranking=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt=null;
         return $ranking;

@@ -30,7 +30,7 @@ if(isset($_SESSION['login'])){
             unset($_SESSION['login']);
             break;
         case "register":
-            print "<span style=\"color:green;background-color:#063e42;font-size:20px;\">account has been successfully registered.</span>";
+            print "<span style=\"color:green;background-color:#063e42;font-size:20px;\">account was successfully registered.</span>";
             unset($_SESSION['login']);
             break;
         case "passwordUpdate":

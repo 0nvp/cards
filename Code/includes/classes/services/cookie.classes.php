@@ -13,7 +13,7 @@ class CookieService extends db{
         $this->_checkCredentials();
         setcookie("LOGIN", $this->_result['id-cookie'], time() + 3600, "/");
         $_SESSION['data']=array("id-user"=>$this->_result['id-user'], "email"=>$this->_result['email'], "username"=>$this->_result['username'],
-        "level"=>$this->_result['level'], "xp"=>$this->_result['xp']);
+        "gold"=>$this->_result['gold'], "level"=>$this->_result['level'], "xp"=>$this->_result['xp']);
     }
 
     protected function _checkCredentials(){
@@ -24,7 +24,7 @@ class CookieService extends db{
                 exit();
                 break;
             default:
-                $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `email`, `username`, `level`, `xp` FROM `users` INNER JOIN `data` 
+                $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `email`, `username`, `gold`, `level`, `xp` FROM `users` INNER JOIN `data` 
                 ON users.`id-user`=data.`id-user` WHERE `id-cookie`=? AND `status`=\"active\";");
                 $stmt->execute(array($this->_cookie));
                 if($stmt->rowCount()==0){

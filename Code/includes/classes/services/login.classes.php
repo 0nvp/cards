@@ -15,7 +15,7 @@ class LoginService extends db{
         $this->_checkCredentials();
         setcookie("LOGIN", $this->_result['id-cookie'], time() + 3600, "/");
         $_SESSION['data']=array("id"=>$this->_result['id-user'], "email"=>$this->_result['email'], "username"=>$this->_result['username'],
-        "level"=>$this->_result['level'], "xp"=>$this->_result['xp']);
+        "gold"=>$this->_result['gold'], "level"=>$this->_result['level'], "xp"=>$this->_result['xp']);
         $_SESSION['p']="home";
     }
 
@@ -46,7 +46,7 @@ class LoginService extends db{
                 exit();
                 break;
             default:
-                $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `username`, `email`, `level`, `xp` FROM `users` 
+                $stmt=$this->connect()->prepare("SELECT users.`id-user`, `id-cookie`, `username`, `email`, `gold`, `level`, `xp` FROM `users` 
                 INNER JOIN `data` ON users.`id-user`=data.`id-user` WHERE `email`=? AND `password`=? AND `status`=\"active\";");
                 $stmt->execute(array($this->_email, hash("sha3-512", $this->_password)));
                 if($stmt->rowCount()==0){

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 28 Paź 2022, 10:22
--- Wersja serwera: 10.4.24-MariaDB
--- Wersja PHP: 8.1.6
+-- Czas generowania: 13 Lis 2022, 14:56
+-- Wersja serwera: 10.4.25-MariaDB
+-- Wersja PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,7 @@ USE `coode`;
 CREATE TABLE `data` (
   `id-user` int(11) NOT NULL,
   `username` text NOT NULL,
+  `gold` int(11) NOT NULL DEFAULT 100,
   `level` int(11) NOT NULL DEFAULT 1,
   `xp` float NOT NULL DEFAULT 28
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -8,7 +8,7 @@ switch($_SESSION['p']){
         $xp=round((($_SESSION['data']['level']+1)**3)/1.092*1.09+($_SESSION['data']['level']+1)*2*10+5);
         $pro=round($_SESSION['data']['xp']*100/$xp);
         // LOGO
-        print "\t<h1>Card game by The Asdeki Team</h1><hr>{$_SESSION['data']['username']} | Level: {$_SESSION['data']['level']}";
+        print "\t<h1>Card game by The Asdeki Team</h1><hr>[Lvl {$_SESSION['data']['level']}] {$_SESSION['data']['username']}";
         // LEVEL BAR
         print "<div class=\"level\"><div id=\"procenty\" style=\"width:$pro%;background-color:#808080;color:#ffffff;cursor:pointer;\">
         $pro% ({$_SESSION['data']['xp']}/$xp XP)</div></div><br><br>";
@@ -24,9 +24,11 @@ switch($_SESSION['p']){
         // LOGO
         print "\t<h1>Card game by Asdeki team</h1><hr><div class=\"ranking\">";
         // RANKING
-        print "<table><thead><tr><td id=\"user\">Username</td><td>Level</td></tr></thead><tbody>";
+        print "<table><thead><tr><td>Top</td><td>Username</td><td>Gold</td></tr></thead><tbody>";
+        $i=0;
         foreach($_SESSION['ranking']['array'] as $ranking){
-            print "<tr><td id=\"user\">{$ranking['username']}</td><td>{$ranking['level']}</td></tr>";
+            $i+=1;
+            print "<tr><td>#{$i}</td><td>[Lvl {$ranking['level']}] {$ranking['username']}</td><td>{$ranking['gold']}</td></tr>";
         }
         print "</tbody></table></div>\n";
         break;

@@ -2,15 +2,15 @@
 if(isset($_SESSION['home'])){
     switch($_SESSION['home']){
         case "emptyUsername":
-            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">username field is empty.</span>";
+            print "<span style=\"color:red;font-size:30px;\">username field is empty.</span>";
             unset($_SESSION['home']);
             break;
         case "emptyEmail":
-            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">email field is empty.</span>";
+            print "<span style=\"color:red;font-size:30px;\">email field is empty.</span>";
             unset($_SESSION['home']);
             break;
         case "emptyPassword":
-            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">password field is empty.</span>";
+            print "<span style=\"color:red;font-size:30px;\">password field is empty.</span>";
             unset($_SESSION['home']);
             break;
         case "emailPolity":
@@ -46,7 +46,7 @@ if(isset($_SESSION['home'])){
             unset($_SESSION['home']);
             break;
         case "saved":
-            print "<span style=\"color:red;background-color:#063e42;font-size:30px;\">new changes have been saved.</span>";
+            print "<span style=\"color:green;font-size:30px;\">new changes have been saved.</span>";
             unset($_SESSION['home']);
             break;
         default:

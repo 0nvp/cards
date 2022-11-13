@@ -38,7 +38,7 @@ class UsernameService extends db{
                 break;
             default:
                 $stmt=$this->connect()->prepare("SELECT `username` FROM `data` WHERE `username`=?;");
-                $stmt->execute(array($this->_username));
+                $stmt->execute(array($this->_username2));
                 if($stmt->rowCount()>0){
                     $_SESSION['home']="usernameUse";
                     header("location: ../../../sign-up");
