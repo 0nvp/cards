@@ -10,7 +10,7 @@ if(isset($_COOKIE['LOGIN'])){
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Card</title>
+        <title>SING UP :: The Azdeki Team</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/register.css">
     </head>
@@ -34,7 +34,7 @@ if(isset($_COOKIE['LOGIN'])){
             <!--SIGN IN-->
             <a id="signin" href="./login">Already have an account? Sign in here!</a>
             <!--COPYRIGHT-->
-            <span id="author">Copyright 2022 by The Asdeki Team. All Rights Reserved.<br>Webiste is Powered by 0nvp</span>
+            <span id="author">Copyright 2022 by The Azdeki Team. All Rights Reserved.<br>Webiste is Powered by 0nvp</span>
         </div>
     </body>
 </html>

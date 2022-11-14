@@ -9,7 +9,7 @@ require_once("includes/inc/ajax.inc.php");
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Card</title>
+        <title>GAME :: The Azdeki Team</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/game.css">
     </head>

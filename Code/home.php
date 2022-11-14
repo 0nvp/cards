@@ -12,7 +12,7 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Card</title>
+        <title>HOME :: The Azdeki Team</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/sidenav.css">
     </head>

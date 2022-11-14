@@ -8,7 +8,7 @@ switch($_SESSION['p']){
         $xp=round((($_SESSION['data']['level']+1)**3)/1.092*1.09+($_SESSION['data']['level']+1)*2*10+5);
         $pro=round($_SESSION['data']['xp']*100/$xp);
         // LOGO
-        print "\t<h1>Card game by The Asdeki Team</h1><hr>[Lvl {$_SESSION['data']['level']}] {$_SESSION['data']['username']}";
+        print "\t<h1>The Azdeki Team</h1><hr>[Lvl {$_SESSION['data']['level']}] {$_SESSION['data']['username']}";
         // LEVEL BAR
         print "<div class=\"level\"><div id=\"procenty\" style=\"width:$pro%;background-color:#808080;color:#ffffff;cursor:pointer;\">
         $pro% ({$_SESSION['data']['xp']}/$xp XP)</div></div><br><br>";
@@ -22,19 +22,17 @@ switch($_SESSION['p']){
         break;
     case "ranking":
         // LOGO
-        print "\t<h1>Card game by Asdeki team</h1><hr><div class=\"ranking\">";
+        print "\t<h1>The Azdeki Team</h1><hr><div class=\"leaderboard-color\">s</div><div class=\"leaderboard\"><p><h1>Leaderboard</h1></p>
+        <p class=\"menu\"><span id=\"tgold\" style=\"border: 1px solid gold;\">Total gold</span> | <span id=\"tpoints\">Total points</span></p>";
         // RANKING
-        print "<table><thead><tr><td>Top</td><td>Username</td><td>Gold</td></tr></thead><tbody>";
-        $i=0;
         foreach($_SESSION['ranking']['array'] as $ranking){
-            $i+=1;
-            print "<tr><td>#{$i}</td><td>[Lvl {$ranking['level']}] {$ranking['username']}</td><td>{$ranking['gold']}</td></tr>";
+            print "<p id=\"username\">[Lvl {$ranking['level']}] <span style=\"color:green;\">{$ranking['username']}</span> <span id=\"gold\">{$ranking['gold']}</span></p>";
         }
-        print "</tbody></table></div>\n";
+        print "</div>\n";
         break;
     default:
         // LOGO
-        print "\t<h1>Card game by The Asdeki Team</h1><hr><h3>Welcome, {$_SESSION['data']['username']}!</h3>
+        print "\t<h1>The Azdeki Team</h1><hr><h3>Welcome, {$_SESSION['data']['username']}!</h3>
         <a href=\"includes/inc/games/game.inc.php\">game</a>\n";
         break;
 }
