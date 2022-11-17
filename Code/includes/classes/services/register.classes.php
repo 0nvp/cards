@@ -82,6 +82,7 @@ class RegisterService extends db{
         $stmt->execute(array(hash("sha3-512", $this->_cookie), $this->_email, hash("sha3-512", $this->_password)));
         $stmt=$this->connect()->prepare("INSERT INTO `data` (`username`) VALUES (?);");
         $stmt->execute(array($this->_username));
+        $stmt=$this->connect()->query("INSERT INTO `shop` (`id-user`) VALUES (NULL);");
         $stmt=null;
     }
 }

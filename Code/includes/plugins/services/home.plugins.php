@@ -22,18 +22,17 @@ switch($_SESSION['p']){
         break;
     case "ranking":
         // LOGO
-        print "\t<h1>The Azdeki Team</h1><hr><div class=\"leaderboard-color\">s</div><div class=\"leaderboard\"><p><h1>Leaderboard</h1></p>
-        <p class=\"menu\"><span id=\"tgold\" style=\"border: 1px solid gold;\">Total gold</span> | <span id=\"tpoints\">Total points</span></p>";
+        print "\t<div class=\"leaderboard-img\"><img src=\"images/icons/leaderboard.png\"></div><div class=\"leaderboard\">";
         // RANKING
         foreach($_SESSION['ranking']['array'] as $ranking){
-            print "<p id=\"username\">[Lvl {$ranking['level']}] <span style=\"color:green;\">{$ranking['username']}</span> <span id=\"gold\">{$ranking['gold']}</span></p>";
+            print "<p id=\"username\">[Lvl {$ranking['level']}] <span style=\"color:{$ranking['color']}\">[{$ranking['tag']}] {$ranking['username']}</span> 
+            <span id=\"gold\">{$ranking['gold']}</span></p>";
         }
         print "</div>\n";
         break;
     default:
         // LOGO
-        print "\t<h1>The Azdeki Team</h1><hr><h3>Welcome, {$_SESSION['data']['username']}!</h3>
-        <a href=\"includes/inc/games/game.inc.php\">game</a>\n";
+        print "\t<h1>The Azdeki Team</h1><hr><h3>Welcome, {$_SESSION['data']['username']}!</h3><a href=\"includes/inc/games/game.inc.php\">game</a>\n";
         break;
 }
 ?>

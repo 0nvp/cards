@@ -23,6 +23,8 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
             <hr>
             <span onclick="sideNav('profile')">Profile</span><br>
             <hr>
+            <span onclick="sideNav('shop')">Shop</span><br>
+            <hr>
             <span onclick="sideNav('ranking')">Ranking</span><br>
             <hr>
             <a href="includes/inc/services/logout.inc.php">Logout</a><br>

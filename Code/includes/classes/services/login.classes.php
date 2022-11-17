@@ -26,11 +26,11 @@ class LoginService extends db{
                 header("location: ../../../login");
                 exit();
                 break;
-            case !filter_var($this->_email, FILTER_VALIDATE_EMAIL):
+            /*case !filter_var($this->_email, FILTER_VALIDATE_EMAIL):
                 $_SESSION['login']="emailPolity";
                 header("location: ../../../login");
                 exit();
-                break;
+                break;*/
             default:
                 break;
         }
