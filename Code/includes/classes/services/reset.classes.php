@@ -12,12 +12,18 @@ class ResetService extends db{
     public function reset(){
         session_start();
         $this->_checkCredentials();
+        /*
+        ** SET VARIABLES
+        */
         $_SESSION['login']="reset";
         header("location: ../../../login");
         exit();
     }
 
     protected function _checkCredentials(){
+        /*
+        ** ID
+        */
         switch($this->_id){
             case empty($this->_id):
                 $_SESSION['login']="emptyId";
@@ -27,6 +33,9 @@ class ResetService extends db{
             default:
                 break;
         }
+        /*
+        ** PASSWORD
+        */
         switch($this->_password){
             case empty($this->_password):
                 $_SESSION['login']="emptyPassword";
@@ -48,6 +57,9 @@ class ResetService extends db{
                 }
                 break;
         }
+        /*
+        ** CREDENTIALS PASSED
+        */
         $stmt=$this->connect()->prepare("UPDATE `users` SET `password`=? WHERE `id-user` IN (SELECT `id-user` FROM `users` WHERE `id-recovery`=?);");
         $stmt->execute(array(hash("sha3-512", $this->_password), hash("sha3-512", $this->_id)));
         $stmt=$this->connect()->prepare("UPDATE `users` SET `id-recovery`=NULL WHERE `id-user` IN (SELECT `id-user` FROM `users` WHERE `id-recovery`=?);");

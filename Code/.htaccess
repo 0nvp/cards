@@ -8,9 +8,11 @@ RewriteRule ^images/(.*\.png)$ assets/images/$1 [L,NC]
 # INDEX
 RewriteRule ^login$ index.php [L,NC]
 # RECOVERY
-RewriteRule ^recovery=(.*)$ index.php?id-recovery=$1 [L,NC]
+RewriteRule ^recovery$ index.php [L,NC]
 # REGISTER
 RewriteRule ^sign-up$ register.php [L,NC]
 # HOME
 RewriteRule ^home$ home.php [L,NC]
+# LOGOUT
+RewriteRule ^logout$ includes/inc/services/logout.inc.php [L,NC]
 # GAME

@@ -12,11 +12,14 @@ class RecoveryService extends db{
     public function recovery(){
         session_start();
         $this->_checkCredentials();
-        header("location: ../../../config/email.php?id-recovery={$this->_recovery}");
+        header("location: ../../../recovery?id-recovery={$this->_recovery}");
         exit();
     }
 
     protected function _checkCredentials(){
+        /*
+        ** EMAIL
+        */
         switch($this->_email){
             case empty($this->_email):
                 $_SESSION['login']="stmt";
@@ -38,6 +41,9 @@ class RecoveryService extends db{
                 }
                 break;
         }
+        /*
+        ** CREDENTIALS PASSED
+        */
         $stmt=$this->connect()->prepare("UPDATE `users` SET `id-recovery`=? WHERE `id-user` IN (SELECT `id-user` FROM `users` WHERE `email`=?);");
         $stmt->execute(array(hash("sha3-512", $this->_recovery), $this->_email));
         $stmt=null;

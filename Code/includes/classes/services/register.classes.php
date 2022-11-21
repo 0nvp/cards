@@ -16,12 +16,18 @@ class RegisterService extends db{
     public function register(){
         session_start();
         $this->_checkCredentials();
+        /*
+        ** SET VARIABLES
+        */
         $_SESSION['login']="register";
         header("location: ../../../login");
         exit();
     }
 
     protected function _checkCredentials(){
+        /*
+        ** PASSWORD
+        */
         switch($this->_password){
             case empty($this->_password):
                 $_SESSION['register']="emptyPassword";
@@ -36,6 +42,9 @@ class RegisterService extends db{
             default:
                 break;
         }
+        /*
+        ** USERNAME
+        */
         switch($this->_username) {
             case empty($this->_username):
                 $_SESSION['register']="emptyUsername";
@@ -57,6 +66,9 @@ class RegisterService extends db{
                 }
                 break;
         }
+        /*
+        ** EMAIL
+        */
         switch($this->_email){
             case empty($this->_email):
                 $_SESSION['register']="emptyEmail";
@@ -78,6 +90,9 @@ class RegisterService extends db{
                 }
                 break;
         }
+        /*
+        ** CREDENTIALS PASSED
+        */
         $stmt=$this->connect()->prepare("INSERT INTO `users` (`id-cookie`, `email`, `password`) VALUES (?, ?, ?);");
         $stmt->execute(array(hash("sha3-512", $this->_cookie), $this->_email, hash("sha3-512", $this->_password)));
         $stmt=$this->connect()->prepare("INSERT INTO `data` (`username`) VALUES (?);");

@@ -12,7 +12,7 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>HOME :: The Azdeki Team</title>
+        <title>Home</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/sidenav.css">
     </head>
@@ -27,7 +27,7 @@ if(isset($_COOKIE['LOGIN']) && empty($_SESSION['data'])){
             <hr>
             <span onclick="sideNav('ranking')">Ranking</span><br>
             <hr>
-            <a href="includes/inc/services/logout.inc.php">Logout</a><br>
+            <a href="./logout">Logout</a><br>
             <hr>
         </div>
         <!--ERROR MSG-->

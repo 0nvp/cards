@@ -13,6 +13,9 @@ class PasswordService extends db{
 
     public function password(){
         $this->_checkCredentials();
+        /*
+        ** SET VARIABLES
+        */
         setcookie("LOGIN", "", time() - 3600, "/");
         session_unset();
         session_destroy();
@@ -23,6 +26,9 @@ class PasswordService extends db{
     }
 
     protected function _checkCredentials(){
+        /*
+        ** PASSWORD
+        */
         switch($this->_password2){
             case empty($this->_password2):
                 $_SESSION['home']="emptyPassword";
@@ -49,6 +55,9 @@ class PasswordService extends db{
                 }
                 break;
         }
+        /*
+        ** CREDENTIALS PASSED
+        */
         $stmt=$this->connect()->prepare("UPDATE `users` SET `password`=? WHERE `id-user`=?;");
         $stmt->execute(array(hash("sha3-512", $this->_password2), $this->_id));
         $stmt=null;

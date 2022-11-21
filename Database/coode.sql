@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Lis 2022, 14:56
+-- Czas generowania: 17 Lis 2022, 16:12
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 -- Baza danych: `coode`
 --
 
-CREATE DATABASE `coode`;
-USE `coode`;
-
 -- --------------------------------------------------------
 
 --
@@ -33,9 +30,30 @@ USE `coode`;
 CREATE TABLE `data` (
   `id-user` int(11) NOT NULL,
   `username` text NOT NULL,
+  `color` text NOT NULL DEFAULT 'grey',
+  `tag` text NOT NULL DEFAULT 'gg',
   `gold` int(11) NOT NULL DEFAULT 100,
   `level` int(11) NOT NULL DEFAULT 1,
   `xp` float NOT NULL DEFAULT 28
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `shop`
+--
+
+CREATE TABLE `shop` (
+  `id-user` int(11) NOT NULL,
+  `green` text NOT NULL DEFAULT 'lock',
+  `yellow` text NOT NULL DEFAULT 'lock',
+  `blue` text NOT NULL DEFAULT 'lock',
+  `grey` text NOT NULL DEFAULT 'unlock',
+  `rng_carry` text NOT NULL DEFAULT 'lock',
+  `card_master` text NOT NULL DEFAULT 'lock',
+  `no_1` text NOT NULL DEFAULT 'lock',
+  `gg` text NOT NULL DEFAULT 'lock',
+  `p2p` text NOT NULL DEFAULT 'lock'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -64,6 +82,13 @@ ALTER TABLE `data`
   ADD KEY `id-user` (`id-user`);
 
 --
+-- Indeksy dla tabeli `shop`
+--
+ALTER TABLE `shop`
+  ADD PRIMARY KEY (`id-user`),
+  ADD KEY `id-user` (`id-user`);
+
+--
 -- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
@@ -82,6 +107,12 @@ ALTER TABLE `data`
   MODIFY `id-user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT dla tabeli `shop`
+--
+ALTER TABLE `shop`
+  MODIFY `id-user` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
@@ -96,6 +127,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `data`
   ADD CONSTRAINT `data_ibfk_1` FOREIGN KEY (`id-user`) REFERENCES `users` (`id-user`);
+
+--
+-- Ograniczenia dla tabeli `shop`
+--
+ALTER TABLE `shop`
+  ADD CONSTRAINT `shop_ibfk_1` FOREIGN KEY (`id-user`) REFERENCES `users` (`id-user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

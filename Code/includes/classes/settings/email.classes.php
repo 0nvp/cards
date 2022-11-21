@@ -13,6 +13,9 @@ class EmailService extends db{
 
     public function email(){
         $this->_checkCredentials();
+        /*
+        ** SET VARIABLES
+        */
         $_SESSION['home']="saved";
         $_SESSION['data']['email']=$this->_email2;
         header("location: ../../../home");
@@ -20,6 +23,9 @@ class EmailService extends db{
     }
 
     protected function _checkCredentials(){
+        /*
+        ** EMAIL
+        */
         switch($this->_email2){
             case empty($this->_email2):
                 $_SESSION['home']="emptyEmail";
@@ -46,6 +52,9 @@ class EmailService extends db{
                 }
                 break;
         }
+        /*
+        ** CREDENTIALS PASSED
+        */
         $stmt=$this->connect()->prepare("UPDATE `users` SET `email`=? WHERE `id-user`=?;");
         $stmt->execute(array($this->_email2, $this->_id));
         $stmt=null;

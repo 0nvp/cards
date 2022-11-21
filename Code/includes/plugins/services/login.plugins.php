@@ -2,7 +2,9 @@
 if(empty($_GET['id-recovery'])){
     // LOGO
     print "<h1>Sign in</h1><h4>Your account for everything.</h4>";
-    // SIGN IN
+    /*
+    ** SIGN IN
+    */
     print "<form method=\"POST\" action=\"includes/inc/services/login.inc.php\">
     <input type=\"text\" name=\"login-email\" placeholder=\"Email\" required=\"\" autocomplete=\"off\">
     <input type=\"password\" name=\"login-password\" placeholder=\"Password\" required=\"\" autocomplete=\"off\">
@@ -13,7 +15,9 @@ if(empty($_GET['id-recovery'])){
 elseif(isset($_GET['id-recovery'])){
     // LOGO
     print "<h1>New password</h1><h4>Your account for everything.</h4>";
-    // RESET PASSWORD
+    /*
+    ** RESET PASSWORD
+    */
     print "<form method=\"POST\" action=\"includes/inc/services/recovery.inc.php?id-recovery={$_GET['id-recovery']}\">
     <input type=\"password\" name=\"reset-password\" placeholder=\"Password\" required=\"\" autocomplete=\"off\">
     <input type=\"submit\" name=\"reset-submit\" value=\"Reset\">

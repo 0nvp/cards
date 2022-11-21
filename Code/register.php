@@ -10,7 +10,7 @@ if(isset($_COOKIE['LOGIN'])){
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>SING UP :: The Azdeki Team</title>
+        <title>Sing up</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/register.css">
     </head>

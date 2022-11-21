@@ -13,13 +13,20 @@ class UsernameService extends db{
 
     public function username(){
         $this->_checkCredentials();
+        /*
+        ** SET VARIABLES
+        */
         $_SESSION['home']="saved";
         $_SESSION['data']['username']=$this->_username2;
+        $_SESSION['data']['avatar']="avatar_".strtolower($this->_username2[0]).".png";
         header("location: ../../../home");
         exit();
     }
 
     protected function _checkCredentials(){
+        /*
+        ** USERNAME
+        */
         switch($this->_username2){
             case empty($this->_username2):
                 $_SESSION['home']="emptyUsername";
@@ -46,6 +53,9 @@ class UsernameService extends db{
                 }
                 break;
         }
+        /*
+        ** CREDENTIALS PASSED
+        */
         $stmt=$this->connect()->prepare("UPDATE `data` SET `username`=? WHERE `id-user`=?;");
         $stmt->execute(array($this->_username2, $this->_id));
         $stmt=null;

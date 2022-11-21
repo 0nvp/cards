@@ -11,6 +11,9 @@ class RemoveService extends db{
 
     public function remove(){
         $this->_checkCredentials();
+        /*
+        ** SET VARIABLES
+        */
         setcookie("LOGIN", "", time() - 3600, "/");
         session_unset();
         session_destroy();
@@ -21,6 +24,9 @@ class RemoveService extends db{
     }
 
     protected function _checkCredentials(){
+        /*
+        ** PASSWORD
+        */
         switch($this->_password){
             case empty($this->_password):
                 $_SESSION['home']="emptyPassword";
@@ -42,6 +48,9 @@ class RemoveService extends db{
                 }
                 break;
         }
+        /*
+        ** CREDENTIALS PASSED
+        */
         $stmt=$this->connect()->prepare("UPDATE `users` SET `status`=\"removed\" WHERE `id-user`=?;");
         $stmt->execute(array($this->_id));
         $stmt=null;

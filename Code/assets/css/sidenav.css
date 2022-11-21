@@ -1,4 +1,6 @@
-/*HOME*/
+/*
+** MENU
+*/
 .sidenav{
     height: 100%;
     width: 140px;
@@ -37,26 +39,53 @@
     font-size: 28px;
     padding: 0px 10px;
 }
-.level{
+/*
+** PROFILE
+*/
+#personalAvatar{
+    float: left;
+    border-radius: 50%;
+}
+#personalUser{
+    float: left;
+    padding: 15px;
+}
+.personalLevel{
+    clear: both;
+    margin-top: 10px;
     width: 500px;
     background-color: #ddd;
 }
-.leaderboard-img img{
+#personalPro{
+    background-color: #808080;
+    color: #ffffff;
+    cursor: pointer;
+}
+/*
+** RANKING
+*/
+.leaderboard-color{
+    position: relative;
+    top: -10px;
     width: 100%;
     height: 100%;
+    padding: 26% 0px;
+    background-color: #063e42;
 }
 .leaderboard{
     position: absolute;
-    top: 19%;
+    top: 25px;
     left: 50%;
     width: 400px;
     height: 500px;
     transform: translateX(-50%);
     text-align: center;
+    font-weight: bold;
     color: #b4ab23;
 }
 .leaderboard #username{
-    padding: 30px 0px;
+    padding: 30px 50px;
+    border: 3px solid white;
 }
 .leaderboard #gold{
     position: relative;
